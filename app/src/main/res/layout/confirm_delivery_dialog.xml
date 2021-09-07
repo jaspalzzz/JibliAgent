@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/margin"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/margin_large"
+    app:cardElevation="@dimen/elevation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/margin"
+        android:paddingTop="@dimen/margin_large"
+        android:paddingEnd="@dimen/margin"
+        android:paddingBottom="@dimen/margin_large">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dialog_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_confirm_order" />
+
+
+        <TextView
+            android:id="@+id/dialogTitle"
+            style="@style/CustomRegularDarkTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_large"
+            tools:text="Dialog Title"></TextView>
+
+
+        <TextView
+            android:id="@+id/dialog_orderId"
+            style="@style/CustomRegularDarkTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialogTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/fill_et_bg"
+            android:gravity="center"
+            android:padding="@dimen/padding_small"
+            tools:text="order id"></TextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_msg"
+            style="@style/CustomMediumDarkTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_orderId"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin"
+            android:gravity="center"
+            tools:text="@string/like_to_confirm_Delivery" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dialog_alert_bt"
+            style="@style/CustomPrimaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_msg"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/confirm" />
+
+        <TextView
+            android:id="@+id/cancelBt"
+            style="@style/CustomRegularDarkTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_alert_bt"
+            android:layout_centerHorizontal="true"
+            android:paddingStart="@dimen/padding"
+            android:paddingTop="@dimen/padding_small"
+            android:paddingEnd="@dimen/padding"
+            android:text="@string/cancel"></TextView>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

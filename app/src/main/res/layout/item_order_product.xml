@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small">
+
+        <TextView
+            android:id="@+id/productNameText"
+            style="@style/CustomMediumDarkTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintHorizontal_weight="50"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="@dimen/margin_small"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Product name"></TextView>
+
+        <TextView
+            android:id="@+id/productQuantityText"
+            style="@style/CustomMediumDarkTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintHorizontal_weight="25"
+            android:gravity="end"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="@dimen/margin_small"
+            tools:text="Qnantity"></TextView>
+
+        <TextView
+            android:id="@+id/productAmountText"
+            style="@style/CustomMediumDarkTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="25"
+            app:layout_constraintStart_toEndOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="end"
+            tools:text="12 LYD"></TextView>
+
+        <TextView
+            android:id="@+id/productID"
+            style="@style/CustomSmallTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productNameText"
+            tools:text="ID:1212121"></TextView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

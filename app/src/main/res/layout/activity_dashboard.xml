@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.ssas.jibli.agent.repo.home.HomeVM" />
+
+        <variable
+            name="isEmptyOrders"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/dashboardHeader"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.6"
+            android:background="@drawable/app_header"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_large">
+
+                <ImageView
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:onClick="@{()->vm.homeNotificationsClick()}"
+                    android:id="@+id/homeNotificationBt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/padding_small"
+                    android:paddingTop="@dimen/padding_small"
+                    android:src="@drawable/ic_home_notification"
+                    app:layout_constraintEnd_toStartOf="@+id/logoutBt"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                <ImageView
+                    android:onClick="@{()->vm.logoutClick()}"
+                    android:id="@+id/logoutBt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/padding_small"
+                    android:paddingTop="@dimen/padding_small"
+                    android:src="@drawable/ic_logout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                <ImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/margin"
+                    android:background="@drawable/ic_scoter"
+                    app:layout_constraintBottom_toBottomOf="@+id/agentCode"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/greetMsg"
+                    app:layout_constraintWidth_percent=".25" />
+
+                <TextView
+                    android:id="@+id/greetMsg"
+                    style="@style/CustomMediumLightTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="@string/hello"
+                    app:layout_constraintStart_toEndOf="@+id/userImage"
+                    app:layout_constraintTop_toBottomOf="@+id/homeNotificationBt" />
+
+                <TextView
+                    android:id="@+id/userName"
+                    style="@style/CustomRegularLightTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/greetMsg"
+                    app:layout_constraintTop_toBottomOf="@+id/greetMsg"
+                    tools:text="User name" />
+
+                <TextView
+                    android:id="@+id/agentCode"
+                    style="@style/CustomSmallLightTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@+id/greetMsg"
+                    app:layout_constraintTop_toBottomOf="@+id/userName"
+                    tools:text="AGENT CODE"></TextView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/orderListView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/footer"
+            app:layout_constraintTop_toBottomOf="@+id/dashboardHeader"
+            app:layout_constraintVertical_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin">
+
+                <TextView
+                    android:id="@+id/textMyLastOrders"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/my_last_picup_order"
+                    android:textAllCaps="true"
+                    android:textStyle="bold" />
+
+                <TextView
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{()->vm.orderSeeAllClick()}"
+                    android:paddingStart="@dimen/padding"
+                    android:paddingTop="@dimen/padding_x_small"
+                    android:paddingBottom="@dimen/padding_x_small"
+                    android:text="@string/show_all"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlue"
+                    android:textStyle="bold"></TextView>
+
+            </RelativeLayout>
+
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/transactionList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/margin_small"
+                        tools:itemCount="4"
+                        tools:listitem="@layout/order_transaction_item"
+                        android:visibility="@{isEmptyOrders?View.GONE:View.VISIBLE}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:visibility="@{isEmptyOrders?View.VISIBLE:View.GONE}"
+                        tools:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/emptyImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/empty_orders" />
+
+                        <TextView
+                            style="@style/CustomRegularTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/no_order"></TextView>
+
+                        <TextView
+                            style="@style/CustomSmallTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin"
+                            android:text="@string/no_shop_as_appointed" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_top_rounded_corner"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderListView">
+
+            <Button
+                android:id="@+id/viewShopsBt"
+                style="@style/CustomPrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginTop="@dimen/margin_large"
+                android:layout_marginEnd="@dimen/margin"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:onClick="@{()->vm.viewShopsClick()}"
+                android:text="@string/view_my_shops"
+                app:layout_constraintTop_toTopOf="parent" />
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

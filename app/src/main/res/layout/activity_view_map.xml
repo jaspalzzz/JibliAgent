@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.home.order.ViewMapActivity">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RelativeLayout
+            android:id="@+id/mapBottomView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_top_rounded_corner"
+            android:padding="@dimen/margin"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/directionBt"
+                style="@style/CustomPrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"></Button>
+
+            <TextView
+                android:id="@+id/cancelBt"
+                style="@style/CustomRegularTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/directionBt"
+                android:layout_centerHorizontal="true"
+                android:paddingStart="@dimen/padding"
+                android:paddingTop="@dimen/padding_small"
+                android:paddingEnd="@dimen/padding"
+                android:text="@string/cancel"
+                android:textColor="@color/colorRed"></TextView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.ssas.jibli.agent.repo.home.HomeVM" />
+
+        <variable
+            name="item"
+            type="com.ssas.jibli.agent.data.models.searchOrder.OrderTransactionArr" />
+
+        <variable
+            name="isAccepted"
+            type="Boolean" />
+
+        <variable
+            name="isShipped"
+            type="Boolean" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.home.order.OrderDetailActivity">
+
+        <include
+            android:id="@+id/orderDetailToolbar"
+            layout="@layout/toolbar"></include>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding">
+
+                <TextView
+                    android:id="@+id/customerNameText"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:text="@{item.customerFullName}"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Customer name"></TextView>
+
+                <TextView
+                    android:id="@+id/orderIdText"
+                    style="@style/CustomMediumDarkTextView"
+                    colonFirstString="@{@string/order_id}"
+                    colonSecondString="@{item.orderTransactionId}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="@+id/customerNameText"
+                    tools:text="2232323"></TextView>
+
+                <TextView
+                    android:id="@+id/customerIdText"
+                    style="@style/CustomSmallTextView"
+                    colonFirstString="@{@string/customer_id}"
+                    colonSecondString="@{item.customerCode}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/customerNameText"
+                    tools:text="customer id:12121"></TextView>
+
+                <TextView
+                    android:id="@+id/orderDate"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.orderDate}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/orderIdText"
+                    tools:text="12.01.2021"></TextView>
+
+                <RatingBar
+                    android:id="@+id/customerRating"
+                    style="?attr/ratingBarStyleSmall"
+                    storeRating="@{item.reviewRating}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/customerIdText"></RatingBar>
+
+                <TextView
+                    android:id="@+id/numberText"
+                    style="@style/CustomSmallTextView"
+                    colonFirstString="@{@string/tel}"
+                    colonSecondString="@{item.contactMobileNumberCode}"
+                    colonSecondThird="@{item.contactMobileNumber}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/telPhoneText"
+                    app:layout_constraintStart_toEndOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/orderDate"
+                    tools:text="1245781212">s</TextView>
+
+                <TextView
+                    android:onClick="@{()->vm.makeCallClick()}"
+                    android:id="@+id/telPhoneText"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/padding_small"
+                    android:paddingBottom="@dimen/padding_small"
+                    android:text="@string/call"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/numberText"
+                    app:layout_constraintTop_toTopOf="@+id/numberText"></TextView>
+
+                <TextView
+                    android:id="@+id/orderAmountText"
+                    style="@style/CustomRegularDarkTextView"
+                    firstString="@{item.finalPaymentAmount}"
+                    secondString="@{item.currencyCode}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/customerRating"
+                    tools:text="125 LYD"></TextView>
+
+                <TextView
+                    android:id="@+id/storeNameText"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@{item.storeName}"
+                    android:textAllCaps="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/orderAmountText"
+                    tools:text="storeName"></TextView>
+
+                <TextView
+                    android:textColor="@color/colorRed"
+                    android:id="@+id/paymentTypeText"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:text="SADAD PAY"
+                    app:layout_constraintStart_toEndOf="@+id/storeNameText"
+                    app:layout_constraintTop_toTopOf="@+id/storeNameText"></TextView>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/orderStatusText"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorYellow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/storeNameText"
+                    tools:text="Order Accepted"></TextView>
+
+                <TextView
+                    android:id="@+id/orderDetailsLabel"
+                    style="@style/CustomMediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="@string/order_details"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/orderStatusText"></TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/productList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@+id/orderDetailsLabel"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_order_product"></androidx.recyclerview.widget.RecyclerView>
+
+                <View
+                    android:id="@+id/v1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackground"
+                    app:layout_constraintTop_toBottomOf="@+id/productList"></View>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.75" />
+
+                <TextView
+                    android:id="@+id/grossTotalLabel"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="end"
+                    android:text="@string/gross_total"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/v1"></TextView>
+
+                <TextView
+                    android:id="@+id/grossTotalText"
+                    style="@style/CustomMediumDarkTextView"
+                    firstString="@{item.totalOrderAmount}"
+                    secondString="@{item.currencyCode}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:gravity="end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintTop_toTopOf="@+id/grossTotalLabel"
+                    tools:text="200 LYD"></TextView>
+
+                <TextView
+                    android:id="@+id/deliveryLabel"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/delivery"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/grossTotalLabel"></TextView>
+
+                <TextView
+                    android:id="@+id/deliveryTotalText"
+                    style="@style/CustomMediumDarkTextView"
+                    firstString="@{item.totalDeliveryCharges}"
+                    secondString="@{item.currencyCode}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:gravity="end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/grossTotalText"
+                    tools:text="200 LYD"></TextView>
+
+                <TextView
+                    android:id="@+id/taxLabel"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/tax"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryLabel"></TextView>
+
+                <TextView
+                    android:id="@+id/taxText"
+                    style="@style/CustomMediumDarkTextView"
+                    firstString="@{item.totalTaxAmount}"
+                    secondString="@{item.currencyCode}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:gravity="end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryTotalText"
+                    tools:text="200 LYD"></TextView>
+
+                <View
+                    android:id="@+id/v2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackground"
+                    app:layout_constraintTop_toBottomOf="@+id/taxLabel"></View>
+
+                <TextView
+                    android:id="@+id/deliveryAddressLabel"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/delivery_address"
+                    android:textAllCaps="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/v2"></TextView>
+
+                <LinearLayout
+                    android:id="@+id/addressView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryAddressLabel">
+
+                    <ImageView
+                        android:id="@+id/viewAddressBt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{()->vm.viewMapClick()}"
+                        android:src="@drawable/ic_view_address"
+                        app:layout_constraintStart_toStartOf="parent"></ImageView>
+
+                    <TextView
+                        android:id="@+id/addressText"
+                        style="@style/CustomMediumDarkTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin"
+                        android:text="@{item.customerDeliveryAddress}"
+                        tools:text="Address line"></TextView>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/v3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackground"
+                    app:layout_constraintTop_toBottomOf="@+id/addressView"></View>
+
+                <TextView
+                    android:id="@+id/deliveryAssignText"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/delivery_assigned_to"
+                    android:textAllCaps="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/v3"></TextView>
+
+                <TextView
+                    android:id="@+id/agentNameText"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.agentName}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryAssignText"
+                    tools:text="agent name"></TextView>
+
+                <TextView
+                    android:id="@+id/agentNumberText"
+                    style="@style/CustomSmallDarkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.agentPhoneNumber}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/agentNameText"
+                    tools:text="90 9592603780"></TextView>
+
+                <TextView
+                    android:id="@+id/agentAssingnDate"
+                    style="@style/CustomSmallDarkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/agentNameText"
+                    tools:text="12.20.200"></TextView>
+
+
+                <View
+                    android:id="@+id/v4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:background="@color/colorBackground"
+                    app:layout_constraintTop_toBottomOf="@+id/agentNumberText"></View>
+
+                <TextView
+                    tools:visibility="gone"
+                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
+                    android:textAllCaps="true"
+                    android:id="@+id/deliveryConfirmationLabel"
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:layout_constraintTop_toBottomOf="@+id/v4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/delivery_confirmation"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+
+                <TextView
+                    android:id="@+id/deliveryConfirmationText"
+                    tools:visibility="gone"
+                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
+                    android:text="@string/delivery_confirmation_message"
+                    style="@style/CustomSmallDarkTextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryConfirmationLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+
+
+                <TextView
+                    tools:visibility="gone"
+                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
+                    android:onClick="@{()->vm.sendOrderOTP()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/sendRequestBt"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryConfirmationText"
+                    android:paddingTop="@dimen/padding_small"
+                    android:paddingEnd="@dimen/padding"
+                    android:paddingStart="@dimen/padding"
+                    android:text="@string/send_request"
+                    android:textColor="@color/colorPrimary"
+                    style="@style/CustomMediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+
+
+                <RelativeLayout
+                    android:id="@+id/orderOTPView"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/sendRequestBt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:onClick="@{()->vm.candelOrderOTP()}"
+                        android:id="@+id/cancelRequestBt"
+                        android:layout_centerHorizontal="true"
+                        android:paddingTop="@dimen/padding_small"
+                        android:paddingEnd="@dimen/padding"
+                        android:paddingStart="@dimen/padding"
+                        android:text="@string/cancel_request"
+                        style="@style/CustomMediumRedTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                    <TextView
+                        android:layout_alignParentStart="true"
+                        android:layout_below="@+id/cancelRequestBt"
+                        android:text="@string/enter_order_code"
+                        style="@style/CustomMediumDarkTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                    <TextView
+                        android:onClick="@{()->vm.resendOrderOTP()}"
+                        android:id="@+id/resendOTPBt"
+                        android:layout_below="@+id/cancelRequestBt"
+                        android:text="@string/resend_code"
+                        android:paddingBottom="@dimen/padding_small"
+                        android:paddingStart="@dimen/padding"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorPrimary"
+                        style="@style/CustomMediumTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                    <com.ssas.jibli.agent.widgets.PinView
+                        android:id="@+id/pinview"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/resendOTPBt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></com.ssas.jibli.agent.widgets.PinView>
+
+                </RelativeLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/orderFooterLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/drawable_top_rounded_corner"
+            android:padding="@dimen/padding">
+
+            <Button
+                tools:visibility="gone"
+                android:visibility="@{isAccepted?View.VISIBLE:View.GONE}"
+                android:id="@+id/pickupBt"
+                style="@style/CustomPrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->vm.pickupFromStoreClick()}"
+                android:text="@string/pickup_from_store"></Button>
+
+            <Button
+                tools:visibility="gone"
+                android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
+                android:id="@+id/deliverToCustomerBt"
+                style="@style/CustomPrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->vm.deliverToCustomer()}"
+                android:text="@string/delivery_to_customer"></Button>
+
+            <TextView
+                tools:visibility="gone"
+                android:visibility="@{isAccepted?View.VISIBLE:View.GONE}"
+                style="@style/CustomRegularTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pickupBt"
+                android:layout_centerHorizontal="true"
+                android:onClick="@{()->vm.cancelPickupClick()}"
+                android:paddingStart="@dimen/padding"
+                android:paddingTop="@dimen/padding_small"
+                android:paddingEnd="@dimen/padding"
+                android:text="@string/decline_pickup"
+                android:textColor="@color/colorRed"></TextView>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

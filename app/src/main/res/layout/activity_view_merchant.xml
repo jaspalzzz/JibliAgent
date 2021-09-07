@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.ssas.jibli.agent.data.models.merchantStore.SearchMerchantStoreArr" />
+
+        <variable
+            name="isDinarPayAccepted"
+            type="Boolean" />
+
+        <variable
+            name="isSadadPayAccepted"
+            type="Boolean" />
+
+        <variable
+            name="isCashAccepted"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.customermodule.home.store.ViewStoreActivity">
+
+        <include
+            android:id="@+id/storeToolbar"
+            layout="@layout/toolbar" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/storeToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/rlStoreWindow"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintHeight_percent=".30"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/storeImg"
+                        networkImage="@{item.storeIconMainURL}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"></ImageView>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_store_shutter"></ImageView>
+                </RelativeLayout>
+
+                <RatingBar
+                    android:id="@+id/storeRating"
+                    style="?attr/ratingBarStyleSmall"
+                    storeRating="@{item.merchantRating}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:progressTint="@color/colorYellow"
+                    android:rating="3.5"
+                    android:secondaryProgressTint="@color/colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlStoreWindow" />
+
+                <TextView
+                    android:id="@+id/storeNameTitle"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:text="@string/store_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/storeRating" />
+
+                <TextView
+                    android:id="@+id/storeCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:text="@{item.currencyCode}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/storeRating"
+                    tools:text="LYD" />
+
+                <TextView
+                    android:id="@+id/storeName"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:background="@drawable/fill_et_bg"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_small"
+                    android:text="@{item.storeName}"
+                    app:layout_constraintTop_toBottomOf="@+id/storeNameTitle"
+                    tools:text="@string/store_name" />
+
+                <TextView
+                    android:id="@+id/storeTypeTitle"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:text="@string/store_type"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/storeName" />
+
+                <TextView
+                    android:id="@+id/storeType"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:background="@drawable/fill_et_bg"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_small"
+                    android:text="@{item.placesDescription}"
+                    app:layout_constraintTop_toBottomOf="@+id/storeTypeTitle"
+                    tools:text="@string/store_type" />
+
+                <TextView
+                    android:id="@+id/storeContactNumberTitle"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:text="@string/store_contact_number"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/storeType" />
+
+                <TextView
+                    android:id="@+id/storeContactNumber"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:background="@drawable/fill_et_bg"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/padding_small"
+                    android:text="@{item.storeContactNumber}"
+                    app:layout_constraintTop_toBottomOf="@+id/storeContactNumberTitle"
+                    tools:text="@string/store_contact_number" />
+
+                <TextView
+                    android:id="@+id/acceptedPaymentMethodTitle"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:text="@string/accepted_payment_methods"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/storeContactNumber" />
+
+                <LinearLayout
+                    android:id="@+id/paymentMethodsView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/acceptedPaymentMethodTitle">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin"
+                        android:src="@drawable/ic_dinar_pay"
+                        android:visibility="@{isDinarPayAccepted?View.VISIBLE:View.GONE}"
+                        tools:visibility="gone"></ImageView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin"
+                        android:src="@drawable/ic_sadad_pay"
+                        android:visibility="@{isSadadPayAccepted?View.VISIBLE:View.GONE}"
+                        tools:visibility="gone"></ImageView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin"
+                        android:src="@drawable/ic_cash_delivery"
+                        android:visibility="@{isCashAccepted?View.VISIBLE:View.GONE}"
+                        tools:visibility="gone"></ImageView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_mulamat"
+                        android:visibility="gone"></ImageView>
+
+                </LinearLayout>
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/margin"
+                    app:layout_constraintTop_toBottomOf="@+id/paymentMethodsView"
+                    tools:layout_editor_absoluteX="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

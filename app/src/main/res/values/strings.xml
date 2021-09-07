@@ -1,0 +1,115 @@
+<resources>
+
+    <string name="app_name">Jibli Agent</string>
+    <string name="app_id" translatable="false">com.ssas.jibli.agent.provider</string>
+
+    <!--Google map key-->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAc1pteiyIEYgPr9LX9oIFyQcCzTK7HWMY</string>
+
+
+    <!--Network permissions-->
+    <string name="no_network_title">Opps! No Internet</string>
+    <string name="no_network_connection">Please check internet connectivity or Turn on your internet connection to use services.</string>
+
+    <!--Exception message-->
+    <string name="exception_msg">Something went wrong. Please try again later or contact customer support.</string>
+
+    <!--Notifications-->
+    <string name="channel_id" translatable="false">1</string>
+    <string name="channel_name" translatable="false">Jibli</string>
+    <string name="channel_description" translatable="false">jibli notification</string>
+
+
+    <!--Strings-->
+    <string name="verifying">Verifying</string>
+    <string name="retry">Retry</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="no">No</string>
+    <string name="concatText" translatable="false">%1$s %2$s</string>
+
+
+    <!--Auth-->
+    <string name="en">EN</string>
+    <string name="login">Login</string>
+    <string name="delivery_app">Delivery App</string>
+    <string name="login_with">Login With</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="password">Password</string>
+    <string name="retrieve">Retrieve</string>
+    <string name="forget_password">Forgot your password?</string>
+    <string name="not_delivery_agent">Not Delivery Agent</string>
+    <string name="not_delivery_agent_message">You are not registered as Delivery Agent Yet. Please Enjoy Jibli Shopping App and come back when you have Agent Permit</string>
+    <string name="hello">Hello</string>
+    <string name="my_last_picup_order">My last pickup orders</string>
+    <string name="show_all">Show All</string>
+    <string name="code">Code</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="select_country_code">Select country code</string>
+    <string name="send">Send</string>
+    <string name="forget_password_instructions">Please enter your registered Mobile Number and Jibli System will send you your Password in an Email Message &amp; SMS to Mobile Number.</string>
+    <string name="retrieve_password">Retrieve Password</string>
+    <string name="check_your_mailbox">Check Your Mailbox &amp; Messages</string>
+    <string name="need_an_account">Need an account?</string>
+    <string name="sign_up_as_agent">Sign Up as Agent</string>
+    <string name="go_to_play_store">Go to Play Store</string>
+    <string name="alert">Alert</string>
+    <string name="logout_from_app">Are you sure want to Logout from App?</string>
+    <string name="logout">Logout</string>
+
+    <!--Home VM-->
+    <string name="no_order">No Order</string>
+    <string name="no_shop_as_appointed">No Shop has Appointed you to deliver String Orders Yet !Stay Close </string>
+    <string name="view_my_shops">View My Shops</string>
+    <string name="ordered">Ordered</string>
+    <string name="accepted">Accepted</string>
+    <string name="shipped">Shipped</string>
+    <string name="delivered">Delivered</string>
+    <string name="order_id">Order ID</string>
+    <string name="my_shops">My Shops</string>
+    <string name="store_name">Store Name</string>
+    <string name="store_type">Store Type</string>
+    <string name="store_contact_number">Store Contact Number</string>
+    <string name="accepted_payment_methods">Accepted Payment Methods</string>
+    <string name="latest_notification">Latest Notifications</string>
+    <string name="view_notifications">View Notifications</string>
+    <string name="orders_delivery">Orders Delivery</string>
+    <string name="call">Call</string>
+    <string name="order_details">Order Details</string>
+    <string name="gross_total">Gross Total</string>
+    <string name="delivery">Delivery</string>
+    <string name="tax">Tax</string>
+    <string name="delivery_address">Delivery address</string>
+    <string name="delivery_assigned_to">Delivery assigned to</string>
+    <string name="pickup_from_store">Pickup From Store</string>
+    <string name="decline_pickup">Decline Pickup</string>
+    <string name="customer_id">Customer ID</string>
+    <string name="tel">Tel</string>
+    <string name="review_order">Review Order</string>
+    <string name="sadad_pay">Sadad PAY</string>
+    <string name="dinarpay">DinarPAY</string>
+    <string name="muamalat_order">Muamalat Order</string>
+    <string name="cash_order">Cash Order</string>
+    <string name="dot">•</string>
+    <string name="location_permission_required">Please allow location permission</string>
+    <string name="delivery_to_customer">Deliver to Customer</string>
+    <string name="order_accepted">Order Accepted</string>
+    <string name="under_delivery">Under Delivery </string>
+    <string name="delivery_confirmation">Delivery Confirmation</string>
+    <string name="delivery_confirmation_message">Would you like to request a Delivery Confirmation from Customer ? </string>
+
+    <string name="like_to_confirm_Delivery">Would you like to confirm Delivery of the Order?</string>
+    <string name="confirm">Confirm</string>
+    <string name="send_request">Send Request</string>
+    <string name="cancel_request">Cancel Request</string>
+    <string name="enter_order_code">Enter Order Code</string>
+    <string name="resend_code">Re-Send Code</string>
+    <string name="order_otp_error">Please enter Order OTP Confimation Code</string>
+    <string name="ready_for_delivery">Ready for Delivery</string>
+    <string name="ready_for_pickup">Ready for Pickup</string>
+    <string name="confirm_delivery">Confirm Delivery</string>
+    <string name="decline_pickup_message">Would you like to Decline Pickup of the Order?</string>
+    <string name="regular">Regular</string>
+    <string name="premium">Premium</string>
+
+</resources>

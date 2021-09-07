@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="hideStatusView"
+            type="Boolean" />
+
+        <variable
+            name="item"
+            type="com.ssas.jibli.agent.data.models.searchOrder.OrderTransactionArr" />
+
+
+        <variable
+            name="isDelivered"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        app:cardCornerRadius="@dimen/card_radius"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:id="@+id/orderRootView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:padding="@dimen/padding">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/storeImageView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".15">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/storeImage"
+                        imageRoundCorner="@{item.storeIconMainURL}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_scoter" />
+
+                    <ImageView
+                        android:id="@+id/profileStatus"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/storeNameView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/orderId"
+                    app:layout_constraintEnd_toStartOf="@+id/reviewOrderBt"
+                    app:layout_constraintStart_toEndOf="@+id/storeImageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <TextView
+                        android:id="@+id/storeName"
+                        style="@style/CustomSmallTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.storeName}"
+                        tools:text="Store Name" />
+
+                    <RatingBar
+                        tools:visibility="gone"
+                        android:visibility="@{isDelivered?View.VISIBLE:View.GONE}"
+                        style="?attr/ratingBarStyleSmall"
+                        storeRating="@{item.reviewRating}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:progressTint="@color/colorPrimary"
+                        android:secondaryProgressTint="@color/colorPrimary" />
+
+                    <TextView
+                        android:textAllCaps="true"
+                        android:id="@+id/deliveryType"
+                        android:visibility="@{isDelivered?View.GONE:View.VISIBLE}"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:textColor="@color/colorGreen"
+                        android:text="REGULAR"
+                        style="@style/CustomExtraSmallTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></TextView>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/reviewOrderBt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:src="@drawable/ic_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/storeNameView"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                <TextView
+                    android:id="@+id/transactionDate"
+                    style="@style/CustomSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:text="@{item.orderDate}"
+                    app:layout_constraintStart_toEndOf="@+id/transactionAmount"
+                    app:layout_constraintTop_toTopOf="@+id/transactionAmount"
+                    tools:text="02-11-2021" />
+
+                <TextView
+                    android:id="@+id/orderId"
+                    style="@style/CustomSmallDarkTextView"
+                    firstString="@{@string/order_id}"
+                    secondString="@{item.orderTransactionId}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:layout_constraintStart_toStartOf="@+id/storeNameView"
+                    app:layout_constraintTop_toBottomOf="@+id/storeNameView"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="Order Id: 58599" />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/transactionAmount"
+                    style="@style/CustomSmallTextView"
+                    firstString="@{item.currencyCode}"
+                    secondString="@{item.finalPaymentAmount}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorYellow"
+                    app:layout_constraintStart_toStartOf="@+id/orderId"
+                    app:layout_constraintTop_toBottomOf="@+id/orderId"
+                    tools:text="LYD 200" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/statusView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{hideStatusView?View.GONE:View.VISIBLE}"
+                tools:visibility="visible">
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin"
+                    android:background="@color/colorBackground"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/orderedImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin"
+                    android:src="@drawable/ic_process"
+                    app:layout_constraintEnd_toStartOf="@+id/v1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+                <TextView
+                    style="@style/CustomExtraSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ordered"
+                    app:layout_constraintEnd_toEndOf="@+id/orderedImage"
+                    app:layout_constraintStart_toStartOf="@+id/orderedImage"
+                    app:layout_constraintTop_toBottomOf="@+id/orderedImage" />
+
+                <View
+                    android:id="@+id/v1"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintBottom_toBottomOf="@id/orderedImage"
+                    app:layout_constraintEnd_toStartOf="@+id/acceptedImage"
+                    app:layout_constraintStart_toEndOf="@+id/orderedImage"
+                    app:layout_constraintTop_toTopOf="@+id/orderedImage" />
+
+                <ImageView
+                    android:id="@+id/acceptedImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_process"
+                    app:layout_constraintEnd_toStartOf="@+id/v2"
+                    app:layout_constraintStart_toEndOf="@+id/v1"
+                    app:layout_constraintTop_toTopOf="@id/orderedImage" />
+
+                <TextView
+                    style="@style/CustomExtraSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accepted"
+                    app:layout_constraintEnd_toEndOf="@+id/acceptedImage"
+                    app:layout_constraintStart_toStartOf="@+id/acceptedImage"
+                    app:layout_constraintTop_toBottomOf="@+id/acceptedImage" />
+
+                <View
+                    android:id="@+id/v2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintBottom_toBottomOf="@id/acceptedImage"
+                    app:layout_constraintEnd_toStartOf="@+id/readyForDevliveryImage"
+                    app:layout_constraintStart_toEndOf="@+id/acceptedImage"
+                    app:layout_constraintTop_toTopOf="@id/acceptedImage" />
+
+                <ImageView
+                    android:id="@+id/readyForDevliveryImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_process"
+                    app:layout_constraintEnd_toStartOf="@+id/v3"
+                    app:layout_constraintStart_toEndOf="@+id/v2"
+                    app:layout_constraintTop_toTopOf="@+id/orderedImage" />
+
+                <TextView
+                    style="@style/CustomExtraSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ready_for_delivery"
+                    app:layout_constraintEnd_toEndOf="@+id/readyForDevliveryImage"
+                    app:layout_constraintStart_toStartOf="@+id/readyForDevliveryImage"
+                    app:layout_constraintTop_toBottomOf="@+id/readyForDevliveryImage" />
+
+                <View
+                    android:id="@+id/v3"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintBottom_toBottomOf="@+id/readyForDevliveryImage"
+                    app:layout_constraintEnd_toStartOf="@+id/shippedImage"
+                    app:layout_constraintStart_toEndOf="@+id/readyForDevliveryImage"
+                    app:layout_constraintTop_toTopOf="@+id/readyForDevliveryImage" />
+
+                <ImageView
+                    android:id="@+id/shippedImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_process"
+                    app:layout_constraintEnd_toStartOf="@+id/v4"
+                    app:layout_constraintStart_toEndOf="@+id/v3"
+                    app:layout_constraintTop_toTopOf="@+id/orderedImage" />
+
+                <TextView
+                    style="@style/CustomExtraSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/shipped"
+                    app:layout_constraintEnd_toEndOf="@+id/shippedImage"
+                    app:layout_constraintStart_toStartOf="@+id/shippedImage"
+                    app:layout_constraintTop_toBottomOf="@+id/shippedImage" />
+
+                <View
+                    android:id="@+id/v4"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:background="@color/colorGrey"
+                    app:layout_constraintBottom_toBottomOf="@+id/shippedImage"
+                    app:layout_constraintEnd_toStartOf="@+id/deliveredImage"
+                    app:layout_constraintStart_toEndOf="@+id/shippedImage"
+                    app:layout_constraintTop_toTopOf="@+id/shippedImage" />
+
+                <ImageView
+                    android:id="@+id/deliveredImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:src="@drawable/ic_process"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/v4"
+                    app:layout_constraintTop_toTopOf="@id/orderedImage" />
+
+                <TextView
+                    style="@style/CustomExtraSmallTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delivered"
+                    app:layout_constraintEnd_toEndOf="@+id/deliveredImage"
+                    app:layout_constraintStart_toStartOf="@+id/deliveredImage"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveredImage" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

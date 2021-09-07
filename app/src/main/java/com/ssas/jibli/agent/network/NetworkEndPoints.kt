@@ -1,0 +1,34 @@
+package com.ssas.jibli.agent.network
+
+import com.google.gson.JsonObject
+import com.ssas.jibli.agent.BuildConfig
+import com.ssas.jibli.agent.MApplication
+
+object NetworkEndPoints {
+	
+	/* user */
+	const val CREATE_USER_PROFILE = "users/createUserProfile"
+	const val MOBILE_LOGIN_REQUEST = "users/mobileLoginRequest"
+	const val SEARCH_CUSTOMER_ORDER = "order/searchCustomerOrder"
+	const val SEARCH_MERCHANT_STORES="merchant/searchMerchantStoreForAgents"
+	const val STORE_PAYMENT_CHANNELS = "merchant/getStorePaymentChannels"
+	const val SEARCH_NOTIFICATION_HISTORY = "push/searchNotificationHistory"
+	const val RETRIEVE_USER_PASSWORD = "users/retrieveUserPassword"
+	const val CHANGE_ORDER_STATUS = "order/changeOrderStatus"
+	const val ORDER_CONFIRMATION_CODE = "order/generateOrderConfirmationCode"
+	const val RESEND_ORDER_CONFIRMATION_CODE = "order/resendOrderConfirmationCode"
+	const val DECLINE_PICKUP_ORDER = "order/declinePickupOrderByAgent"
+
+	/*
+	* Auth json object method
+	* */
+	fun authJsonObject(): JsonObject {
+		var params = JsonObject()
+		params.addProperty("accessUserName", BuildConfig.ACCESS_USER_NAME)
+		params.addProperty("accessPassword", BuildConfig.ACCESS_PASSWORD)
+		params.addProperty("accessSmartSecurityKey", BuildConfig.SECURITY_KEY)
+		params.addProperty("requestChannel", BuildConfig.REQUEST_CHANNEL)
+		params.addProperty("languageCode", MApplication.language)
+		return params
+	}
+}

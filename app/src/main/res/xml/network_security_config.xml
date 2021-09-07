@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">176.236.143.195</domain>
+        <domain includeSubdomains="true">31.169.70.172</domain>
+        <domain includeSubdomains="true">192.168.50.3</domain>
+        <domain includeSubdomains="true">176.236.143.194</domain>
+        <domain includeSubdomains="true">jibli-engine-prod.eu-central-1.elasticbeanstalk.com</domain>
+        <domain includeSubdomains="true">services.dinarpay.com</domain>
+    </domain-config>
+</network-security-config>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="com.ssas.jibli.agent.data.models.searchNotification.NotificationHistory" />
+    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_small"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="@{item.notificationDate}"
+        android:id="@+id/notificationDateText"
+        style="@style/CustomSmallDarkTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        tools:text="12.02.2021"></TextView>
+
+    <TextView
+        android:text="@{item.notificationMessage}"
+        android:id="@+id/notificationText"
+        style="@style/CustomSmallLightTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/blue_bt_bg"
+        android:padding="@dimen/padding_small"
+        tools:text="aaa"></TextView>
+</LinearLayout>
+</layout>

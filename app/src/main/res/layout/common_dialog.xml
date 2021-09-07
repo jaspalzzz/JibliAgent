@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/margin"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/margin_large"
+    app:cardElevation="@dimen/elevation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/margin"
+        android:paddingTop="@dimen/margin_large"
+        android:paddingEnd="@dimen/margin"
+        android:paddingBottom="@dimen/margin_large">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dialog_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_scoter" />
+
+
+        <TextView
+            android:id="@+id/dialog_title"
+            style="@style/CustomRegularDarkTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_large"
+            tools:text="Title"></TextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialog_msg"
+            style="@style/CustomMediumDarkTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_title"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            tools:text="Message" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dialog_alert_bt"
+            style="@style/CustomPrimaryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_msg"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/ok" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

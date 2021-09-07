@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "529293351597",
+    "firebase_url": "https://jibli-ecommerce.firebaseio.com",
+    "project_id": "jibli-ecommerce",
+    "storage_bucket": "jibli-ecommerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529293351597:android:a892f96331d200a9f38424",
+        "android_client_info": {
+          "package_name": "com.ssas.jibli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529293351597-5gmcssq3uv01n2i63e4qs04q3sbphnd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEloeFaCaQYybRD-rDlL5JldH4i_b2F-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529293351597-5gmcssq3uv01n2i63e4qs04q3sbphnd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529293351597:android:030a4fffa673a967f38424",
+        "android_client_info": {
+          "package_name": "com.ssas.jibli.agent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529293351597-5gmcssq3uv01n2i63e4qs04q3sbphnd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEloeFaCaQYybRD-rDlL5JldH4i_b2F-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529293351597-5gmcssq3uv01n2i63e4qs04q3sbphnd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529293351597:android:1f3d2b70338e6f1bf38424",
+        "android_client_info": {
+          "package_name": "com.ssas.jiblibusiness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529293351597-5gmcssq3uv01n2i63e4qs04q3sbphnd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEloeFaCaQYybRD-rDlL5JldH4i_b2F-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529293351597-5gmcssq3uv01n2i63e4qs04q3sbphnd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

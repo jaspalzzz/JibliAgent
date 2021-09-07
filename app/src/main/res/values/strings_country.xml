@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="country_libya_name">Libya</string>
+    <string name="country_libya_code" translatable="false">ly</string>
+    <string name="country_libya_number" translatable="false">218</string>
+
+    <string name="country_tunisia_name">Tunisia</string>
+    <string name="country_tunisia_code" translatable="false">tn</string>
+    <string name="country_tunisia_number" translatable="false">216</string>
+    
+    <string name="country_turkey_name">Turkey</string>
+    <string name="country_turkey_code" translatable="false">tr</string>
+    <string name="country_turkey_number" translatable="false">90</string>
+</resources>

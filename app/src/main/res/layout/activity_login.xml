@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.ssas.jibli.agent.repo.auth.AuthVM" />
+
+        <variable
+            name="isToggle"
+            type="Boolean" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.auth.fragments.RegisterContactFragment">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/authLogoImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_x_large"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_scoter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/signUpWithLabel"
+                    style="@style/CustomMediumBoldTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="@string/login_with"
+                    android:textAllCaps="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/authLogoImg" />
+
+
+
+                <EditText
+                    android:id="@+id/emailEt"
+                    style="@style/CustomEditRegularStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:hint="@string/enter_email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:text="@={vm.email}"
+                    app:layout_constraintBottom_toTopOf="@+id/passwordEt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/signUpWithLabel"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <EditText
+                    android:id="@+id/passwordEt"
+                    style="@style/CustomEditRegularStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_large"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginEnd="@dimen/margin_large"
+                    android:hint="@string/password"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:text="@={vm.password}"
+                    app:layout_constraintBottom_toTopOf="@+id/loginBt"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/emailEt"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12dp"
+                    android:layout_marginEnd="@dimen/margin_8dp"
+                    android:onClick="@{()->vm.onLoginPasswordToggleClick()}"
+                    android:src="@{isToggle?@drawable/ic_visibility_off_black_24dp:@drawable/ic_visibility_black_24dp}"
+                    app:layout_constraintRight_toRightOf="@id/passwordEt"
+                    app:layout_constraintTop_toTopOf="@id/passwordEt"
+                    tools:src="@drawable/ic_visibility_black_24dp" />
+
+                <Button
+                    android:id="@+id/loginBt"
+                    style="@style/CustomPrimaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:onClick="@{()->vm.loginRequest()}"
+                    android:text="@string/login"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintTop_toBottomOf="@+id/passwordEt"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <TextView
+                    android:id="@+id/needAccountLabel"
+                    style="@style/CustomMediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:text="@string/need_an_account"
+                    android:layout_marginBottom="@dimen/margin"
+                    app:layout_constraintBottom_toTopOf="@+id/forgetPasswordLabel"
+                    app:layout_constraintEnd_toStartOf="@+id/signUpLabel"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/signUpLabel"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->vm.signUpTextClick()}"
+                    android:paddingStart="@dimen/margin_small"
+                    android:paddingTop="@dimen/padding_small"
+                    android:paddingEnd="@dimen/padding"
+                    android:text="@string/sign_up_as_agent"
+                    app:layout_constraintBaseline_toBaselineOf="@id/needAccountLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/needAccountLabel" />
+
+
+                <TextView
+                    android:id="@+id/forgetPasswordLabel"
+                    style="@style/CustomMediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:layout_marginBottom="@dimen/margin"
+                    android:text="@string/forget_password"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/forgetPasswordBt"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/forgetPasswordBt"
+                    style="@style/CustomMediumTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->vm.onForgetPasswordClick()}"
+                    android:paddingStart="@dimen/margin_small"
+                    android:paddingTop="@dimen/padding_small"
+                    android:paddingEnd="@dimen/padding"
+                    android:text="@string/retrieve"
+                    android:textStyle="bold"
+                    app:layout_constraintBaseline_toBaselineOf="@id/forgetPasswordLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@+id/forgetPasswordLabel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+</layout>
