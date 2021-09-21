@@ -368,7 +368,7 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
 
     private fun handleOrderStatus() {
         when (orderItem?.statusCode) {
-            ValConstant.ACCEPTED -> {
+            ValConstant.READY_FOR_DELIVERY -> {
                 binding.orderStatusText.text = getString(R.string.ready_for_pickup)
                 binding.isAccepted = true
                 binding.isShipped = false

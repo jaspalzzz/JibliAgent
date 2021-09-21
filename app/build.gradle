@@ -14,29 +14,29 @@ android {
         applicationId "com.ssas.jibli.agent"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+
         dev {
             initWith(debug)
-            buildConfigField "String", "BASE_URL", '"http://31.169.70.172:28080/JibliEngine/"'
+            buildConfigField "String", "BASE_URL", '"http://176.236.143.195:8380/JibliEngine/"'
             buildConfigField "String", "DINAR_BASE_URL", '"http://176.236.143.194:28180/DPServices/"'
             buildConfigField "String", "ACCESS_USER_NAME", '"Jebli@ANDR_20year!"'
             buildConfigField "String", "ACCESS_PASSWORD", '"Jebli@234XD43softDev"'
             buildConfigField "String", "SECURITY_KEY", '"DC3fs3433-GH3423-sdG432Jkj99-LO342df"'
             buildConfigField "String", "REQUEST_CHANNEL", '"ANDROID"'
             signingConfig signingConfigs.debug
-
         }
 
         staging {
             initWith(debug)
-            buildConfigField "String", "BASE_URL", '"http://176.236.143.195:8380/JibliEngine/"'
-            buildConfigField "String", "DINAR_BASE_URL", '"http://176.236.143.194:28180/DPServices/"'
+            buildConfigField "String", "BASE_URL", '"http://31.169.78.126:8380/JibliEngine/"'
+            buildConfigField "String", "DINAR_BASE_URL", '"http://31.169.78.124:28080/DPServices/"'
             buildConfigField "String", "ACCESS_USER_NAME", '"Jebli@ANDR_20year!"'
             buildConfigField "String", "ACCESS_PASSWORD", '"Jebli@234XD43softDev"'
             buildConfigField "String", "SECURITY_KEY", '"DC3fs3433-GH3423-sdG432Jkj99-LO342df"'
