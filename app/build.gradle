@@ -36,7 +36,7 @@ android {
         staging {
             initWith(debug)
             buildConfigField "String", "BASE_URL", '"http://31.169.78.126:8380/JibliEngine/"'
-            buildConfigField "String", "DINAR_BASE_URL", '"http://31.169.78.124:28080/DPServices/"'
+            buildConfigField "String", "DINAR_BASE_URL", '"http://31.169.78.124:28180/DPServices/"'
             buildConfigField "String", "ACCESS_USER_NAME", '"Jebli@ANDR_20year!"'
             buildConfigField "String", "ACCESS_PASSWORD", '"Jebli@234XD43softDev"'
             buildConfigField "String", "SECURITY_KEY", '"DC3fs3433-GH3423-sdG432Jkj99-LO342df"'
