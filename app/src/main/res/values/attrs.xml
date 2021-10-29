@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="cardListItem">
+        <attr name="item_img" format="reference"></attr>
+        <attr name="item_title" format="string"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="cardImageItem">
+        <attr name="item_card_img" format="reference"></attr>
+        <attr name="item_card_title" format="string"></attr>
+    </declare-styleable>
+</resources>

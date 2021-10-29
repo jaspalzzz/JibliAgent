@@ -6,4 +6,5 @@ object SharingKeys {
     const val CUSTOMER_LAT = "CUSTOMER_LAT"
     const val CUSTOMER_LON = "CUSTOMER_LON"
     const val DELIVERY_ADDRESS = "DELIVERY_ADDRESS"
+    const val QR_RESULT = "QR_RESULT"
 }

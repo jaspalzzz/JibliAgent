@@ -3,6 +3,7 @@ package com.ssas.jibli.agent.ui.home
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import com.google.gson.Gson
 import com.ssas.jibli.agent.R
@@ -28,50 +29,23 @@ import com.ssas.jibli.agent.utils.Utils
 
 class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
 
-    lateinit var searchOrderAdapter: ReviewOrderTransactionAdapter
-    private var isFirstLoading = true
-
-
     override val bindingActivity: ActivityBinding
         get() = ActivityBinding(R.layout.activity_dashboard, HomeVM::class.java)
 
     override fun onCreateActivity(savedInstanceState: Bundle?) {
-        inflateSearchOrders()
-        swipeRefresh()
-        showOrderDetails()
+
     }
 
-    private fun inflateSearchOrders() {
-        searchOrderAdapter = ReviewOrderTransactionAdapter(this) { position, item ->
-            var bundle = Bundle().apply {
-                putString(SharingKeys.ORDER_TRANSACTION_ID, item?.orderTransactionId)
-            }
-            Utils.jumpActivityForResult(
-                this,
-                RequestCodes.CHANGE_ORDER_REQUEST_CODE,
-                OrderDetailActivity::class.java, bundle
-            )
+    private fun openOrderReview(orderTransactionId:String){
+        var bundle = Bundle().apply {
+            putString(SharingKeys.ORDER_TRANSACTION_ID, orderTransactionId)
         }
-        binding.transactionList.adapter = searchOrderAdapter
+        Utils.jumpActivityForResult(
+            this,
+            RequestCodes.CHANGE_ORDER_REQUEST_CODE,
+            OrderDetailActivity::class.java, bundle
+        )
     }
-
-    private fun showOrderDetails() {
-        viewModel.searchOrderDetails(0, 10, false, false, "")
-    }
-
-    private fun swipeRefresh() {
-        binding.swipeRefresh.setOnRefreshListener {
-            binding.isEmptyOrders = false
-            showOrderDetails()
-        }
-    }
-
-    private fun stopSwipeRefreshing() {
-        if (binding.swipeRefresh.isRefreshing) {
-            binding.swipeRefresh.isRefreshing = false
-        }
-    }
-
     override fun subscribeToEvents(vm: HomeVM) {
         binding.vm = vm
 
@@ -99,54 +73,17 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
                 HomeClickEvents.LOGOUT_BUTTON -> {
                    logoutFromApp()
                 }
-            }
-        })
-
-
-        vm.searchOrder.observe(this, Observer {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    stopSwipeRefreshing()
-                    isFirstLoading = false
-                    val responseCode = it?.response?.responseCodeVO?.responseCode
-                    val responseMessage = it?.response?.responseCodeVO?.responseMessage
-
-                    if (responseCode == ApiStatusCodes.SEARCH_CUSTOMER_ORDER_SUCCESS &&
-                        responseMessage == ApiStatusCodes.SUCCESS
-                    ) {
-                        if (!it.response?.orderTransactionArr.isNullOrEmpty()) {
-                            searchOrderAdapter.clearData()
-                            searchOrderAdapter.addData(it.response?.orderTransactionArr!!)
-                        } else {
-                            emptyOrderTransactions()
-                        }
-                    } else {
-                        emptyOrderTransactions()
-                        alertDialogShow(this, it?.response?.responseCodeVO?.responseValue ?: "")
-                    }
+                HomeClickEvents.PICKUP_DELIVERIES ->{
+                    Utils.jumpActivityForResult(this,BarCodeScannerActivity::class.java,RequestCodes.BAR_CODE_SCAN_REQUEST_CODE)
                 }
-
-                Status.LOADING -> {
-                    if (isFirstLoading) {
-                        binding.swipeRefresh.isRefreshing = true
-                    }
-                }
-
-                Status.ERROR -> {
-                    stopSwipeRefreshing()
-                    isFirstLoading = false
-                    emptyOrderTransactions()
-                    var errorObject = Utils.errorHandlingWithStatus(this, it.error)
-                    alertDialogShow(this, errorObject.message)
+                HomeClickEvents.MY_ORDERS ->{
+                    Utils.jumpActivity(this,OrderSeeAllActivity::class.java)
                 }
             }
         })
 
     }
 
-    private fun emptyOrderTransactions() {
-        binding.isEmptyOrders = true
-    }
 
     override fun onResume() {
         super.onResume()
@@ -183,13 +120,18 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
             })
     }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RequestCodes.CHANGE_ORDER_REQUEST_CODE && resultCode == RequestCodes.CHANGE_ORDER_RESULT_CODE) {
-            binding.isEmptyOrders = false
-            showOrderDetails()
-        }
-    }
+        mActivityResultListener?.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RequestCodes.BAR_CODE_SCAN_REQUEST_CODE && resultCode == RequestCodes.QR_RESULT_CODE) {
+            if (data != null) {
+                var barCode = data.getStringExtra(SharingKeys.QR_RESULT)
+               openOrderReview(barCode?:"")
 
+            } else {
+                alertDialogShow(this, getString(R.string.alert), getString(R.string.exception_msg))
+            }
+        }
+
+    }
 }

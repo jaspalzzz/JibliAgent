@@ -111,5 +111,13 @@
     <string name="decline_pickup_message">Would you like to Decline Pickup of the Order?</string>
     <string name="regular">Regular</string>
     <string name="premium">Premium</string>
+    <string name="paid">Paid</string>
+    <string name="not_paid">Not Paid</string>
+    <string name="id">ID</string>
+    <string name="pickup_delivery">Pickup &amp; Delivery</string>
+    <string name="my_orders">My Orders</string>
+    <string name="scan_order_barcode">Scan Order Barcode</string>
+    <string name="camera_permission_msg">Please turn on camera permission from settings to upload image.</string>
+
 
 </resources>

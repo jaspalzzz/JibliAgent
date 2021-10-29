@@ -11,8 +11,12 @@ import java.util.*
 
 object PermissionUtils {
 	const val PERMISSION_LOCATION_REQUEST_CODE = 200
+	const val PERMISSION_REQUEST_CAMERA_CODE = 253
+
 
 	var LOCATION_PERMISSION=arrayOf(Manifest.permission.CAMERA,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION)
+	var CAMERA_PERMISSION=arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA)
+
 
 	@JvmStatic
 	fun hasPermission(context: Context?, permissions: Array<String>): Boolean {

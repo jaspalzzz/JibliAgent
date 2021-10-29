@@ -20,6 +20,8 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.viewpager2.widget.ViewPager2
+import com.google.zxing.BarcodeFormat
+import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.ssas.jibli.agent.R
 import com.ssas.jibli.agent.data.models.ErrorResponse
 import org.json.JSONException
@@ -263,6 +265,16 @@ object Utils {
             }
         }
         return errorResponse
+    }
+
+
+    fun generateBarCode(barcode: String): Bitmap? {
+        return try {
+            var barcodeEncoder = BarcodeEncoder()
+            barcodeEncoder.encodeBitmap(barcode, BarcodeFormat.CODE_128, 800, 300)
+        } catch (e: Exception) {
+            null
+        }
     }
 
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import com.ssas.jibli.agent.R
 import com.ssas.jibli.agent.base.BaseActivity
@@ -178,6 +179,8 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
                             orderItem = response?.get(0)
                             binding.item = orderItem
                             handleOrderStatus()
+                            handlePaymentStatus()
+                            handleDeliveryType()
                             paymentType(response?.get(0))
                             if (!response.get(0).customerOrderDetailsList.isNullOrEmpty()) {
                                 inflateProductList(response.get(0).customerOrderDetailsList!!)
@@ -366,6 +369,10 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
         dialog.show(supportFragmentManager, "")
     }
 
+    private fun handlePaymentStatus(){
+        binding.isPaid = orderItem?.paymentStatusCode == ValConstant.PAID
+    }
+
     private fun handleOrderStatus() {
         when (orderItem?.statusCode) {
             ValConstant.READY_FOR_DELIVERY -> {
@@ -386,24 +393,30 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
 
     private fun paymentType(item: OrderTransactionArr) {
         if (item.isDinarPayDebitCard == "Y") {
-            binding.paymentTypeText.text =
-                getString(R.string.dot) + " " + getString(R.string.dinarpay)
+            binding.paymentTypeText.text = getString(R.string.dinarpay)
         }
         if (item.isDinarPayVirtualCard == "Y") {
-            binding.paymentTypeText.text =
-                getString(R.string.dot) + " " + getString(R.string.dinarpay)
+            binding.paymentTypeText.text = getString(R.string.dinarpay)
         }
         if (item.isSadadPay == "Y") {
-            binding.paymentTypeText.text =
-                getString(R.string.dot) + " " + getString(R.string.sadad_pay)
+            binding.paymentTypeText.text = getString(R.string.sadad_pay)
         }
         if (item.isMumalatPay == "Y") {
-            binding.paymentTypeText.text =
-                getString(R.string.dot) + " " + getString(R.string.muamalat_order)
+            binding.paymentTypeText.text = getString(R.string.muamalat_order)
         }
         if (item.isCashOnDelivery == "Y") {
-            binding.paymentTypeText.text =
-                getString(R.string.dot) + " " + getString(R.string.cash_order)
+            binding.paymentTypeText.text = getString(R.string.cash_order)
+        }
+    }
+
+    private fun handleDeliveryType(){
+        if(orderItem?.isRegularDelivery == "Y"){
+            binding.deliveryTypeText.text = getString(R.string.regular)
+            binding.deliveryTypeText.setTextColor(ActivityCompat.getColor(this,R.color.colorGreen))
+        }
+        if(orderItem?.isPremiumDelivery == "Y"){
+            binding.deliveryTypeText.text = getString(R.string.premium)
+            binding.deliveryTypeText.setTextColor(ActivityCompat.getColor(this,R.color.colorRed))
         }
     }
 

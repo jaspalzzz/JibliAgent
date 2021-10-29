@@ -37,11 +37,11 @@
                 android:padding="@dimen/margin_large">
 
                 <ImageView
-                    android:layout_marginEnd="@dimen/margin_small"
-                    android:onClick="@{()->vm.homeNotificationsClick()}"
                     android:id="@+id/homeNotificationBt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:onClick="@{()->vm.homeNotificationsClick()}"
                     android:paddingStart="@dimen/padding_small"
                     android:paddingTop="@dimen/padding_small"
                     android:src="@drawable/ic_home_notification"
@@ -49,10 +49,10 @@
                     app:layout_constraintTop_toTopOf="parent"></ImageView>
 
                 <ImageView
-                    android:onClick="@{()->vm.logoutClick()}"
                     android:id="@+id/logoutBt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{()->vm.logoutClick()}"
                     android:paddingStart="@dimen/padding_small"
                     android:paddingTop="@dimen/padding_small"
                     android:src="@drawable/ic_logout"
@@ -116,91 +116,25 @@
             app:layout_constraintTop_toBottomOf="@+id/dashboardHeader"
             app:layout_constraintVertical_weight="1">
 
-            <RelativeLayout
+            <com.ssas.jibli.agent.widgets.CardImageItem
+                android:onClick="@{()->vm.pickupDeliveriesClick()}"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:layout_marginStart="@dimen/margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin">
+                app:item_card_img="@drawable/ic_pick_delivery"
+                app:item_card_title="@string/pickup_delivery"></com.ssas.jibli.agent.widgets.CardImageItem>
 
-                <TextView
-                    android:id="@+id/textMyLastOrders"
-                    style="@style/CustomSmallTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:text="@string/my_last_picup_order"
-                    android:textAllCaps="true"
-                    android:textStyle="bold" />
-
-                <TextView
-                    style="@style/CustomSmallTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:onClick="@{()->vm.orderSeeAllClick()}"
-                    android:paddingStart="@dimen/padding"
-                    android:paddingTop="@dimen/padding_x_small"
-                    android:paddingBottom="@dimen/padding_x_small"
-                    android:text="@string/show_all"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorBlue"
-                    android:textStyle="bold"></TextView>
-
-            </RelativeLayout>
-
-
-            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-                android:id="@+id/swipeRefresh"
+            <com.ssas.jibli.agent.widgets.CardImageItem
+                android:onClick="@{()->vm.myOrdersClick()}"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:layout_marginStart="@dimen/margin"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/transactionList"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="@dimen/margin_small"
-                        tools:itemCount="4"
-                        tools:listitem="@layout/order_transaction_item"
-                        android:visibility="@{isEmptyOrders?View.GONE:View.VISIBLE}"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:visibility="@{isEmptyOrders?View.VISIBLE:View.GONE}"
-                        tools:visibility="gone">
-
-                        <ImageView
-                            android:id="@+id/emptyImage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/empty_orders" />
-
-                        <TextView
-                            style="@style/CustomRegularTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/no_order"></TextView>
-
-                        <TextView
-                            style="@style/CustomSmallTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin"
-                            android:text="@string/no_shop_as_appointed" />
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                android:layout_height="wrap_content"
+                app:item_card_img="@drawable/ic_my_order"
+                app:item_card_title="@string/my_orders"></com.ssas.jibli.agent.widgets.CardImageItem>
 
         </LinearLayout>
 

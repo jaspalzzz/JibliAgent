@@ -12,5 +12,7 @@ enum class HomeClickEvents {
     SEND_ORDER_OTP,
     CANCEL_ORDER_OTP,
     RESEND_ORDER_OTP,
-    LOGOUT_BUTTON
+    LOGOUT_BUTTON,
+    MY_ORDERS,
+    PICKUP_DELIVERIES
 }

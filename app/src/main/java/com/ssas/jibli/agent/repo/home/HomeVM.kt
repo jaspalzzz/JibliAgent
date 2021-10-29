@@ -92,6 +92,14 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
         clickEvents.value = HomeClickEvents.LOGOUT_BUTTON
     }
 
+    fun myOrdersClick() {
+        clickEvents.value = HomeClickEvents.MY_ORDERS
+    }
+
+    fun pickupDeliveriesClick() {
+        clickEvents.value = HomeClickEvents.PICKUP_DELIVERIES
+    }
+
     /*
     * SearchOrderNotification
     * */

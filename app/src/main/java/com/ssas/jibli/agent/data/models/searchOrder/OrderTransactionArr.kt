@@ -144,6 +144,8 @@ data class OrderTransactionArr(
 	val isRegularDelivery: String?,
 	@SerializedName("isPremiumDelivery")
 	val isPremiumDelivery: String?,
+	@SerializedName("paymentStatusCode")
+	val paymentStatusCode: String?,
 	var accessUserName:String?,
 	var accessPassword:String?,
 	var accessSmartSecurityKey:String?,

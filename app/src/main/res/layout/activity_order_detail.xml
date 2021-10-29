@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
 
         <variable
             name="vm"
@@ -19,6 +19,10 @@
 
         <variable
             name="isShipped"
+            type="Boolean" />
+
+        <variable
+            name="isPaid"
             type="Boolean" />
 
     </data>
@@ -58,17 +62,15 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Customer name"></TextView>
 
-                <TextView
-                    android:id="@+id/orderIdText"
-                    style="@style/CustomMediumDarkTextView"
-                    colonFirstString="@{@string/order_id}"
-                    colonSecondString="@{item.orderTransactionId}"
+                <ImageView
+                    android:id="@+id/barCodeImage"
+                    generateBarcodeImage="@{item.orderTransactionId}"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="1:.4"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/guideline"
-                    app:layout_constraintTop_toTopOf="@+id/customerNameText"
-                    tools:text="2232323"></TextView>
+                    app:layout_constraintStart_toStartOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
 
                 <TextView
                     android:id="@+id/customerIdText"
@@ -77,30 +79,11 @@
                     colonSecondString="@{item.customerCode}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_extra_small_text"
                     app:layout_constraintEnd_toStartOf="@+id/guideline"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/customerNameText"
                     tools:text="customer id:12121"></TextView>
-
-                <TextView
-                    android:id="@+id/orderDate"
-                    style="@style/CustomSmallTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="@{item.orderDate}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/guideline"
-                    app:layout_constraintTop_toBottomOf="@+id/orderIdText"
-                    tools:text="12.01.2021"></TextView>
-
-                <RatingBar
-                    android:id="@+id/customerRating"
-                    style="?attr/ratingBarStyleSmall"
-                    storeRating="@{item.reviewRating}"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/customerIdText"></RatingBar>
 
                 <TextView
                     android:id="@+id/numberText"
@@ -108,24 +91,24 @@
                     colonFirstString="@{@string/tel}"
                     colonSecondString="@{item.contactMobileNumberCode}"
                     colonSecondThird="@{item.contactMobileNumber}"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toStartOf="@+id/telPhoneText"
-                    app:layout_constraintStart_toEndOf="@+id/guideline"
-                    app:layout_constraintTop_toBottomOf="@+id/orderDate"
-                    tools:text="1245781212">s</TextView>
+                    android:textSize="@dimen/default_extra_small_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/customerIdText"
+                    tools:text="9592603780">s</TextView>
 
                 <TextView
-                    android:onClick="@{()->vm.makeCallClick()}"
                     android:id="@+id/telPhoneText"
                     style="@style/CustomSmallTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{()->vm.makeCallClick()}"
                     android:paddingStart="@dimen/padding_small"
                     android:paddingBottom="@dimen/padding_small"
                     android:text="@string/call"
                     android:textColor="@color/colorPrimary"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textSize="@dimen/default_extra_small_text"
                     app:layout_constraintStart_toEndOf="@+id/numberText"
                     app:layout_constraintTop_toTopOf="@+id/numberText"></TextView>
 
@@ -137,9 +120,58 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin"
+                    android:textStyle="bold"
+                    android:visibility="@{isPaid?View.INVISIBLE:View.VISIBLE}"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/customerRating"
+                    app:layout_constraintTop_toBottomOf="@+id/numberText"
                     tools:text="125 LYD"></TextView>
+
+                <TextView
+                    android:id="@+id/orderIdText"
+                    style="@style/CustomSmallDarkTextView"
+                    colonFirstString="@{@string/id}"
+                    colonSecondString="@{item.orderTransactionId}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/orderAmountText"
+                    tools:text="2232323"></TextView>
+
+                <TextView
+                    android:id="@+id/deliveryTypeText"
+                    style="@style/CustomSmallDarkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorRed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/orderIdText"
+                    tools:text="Delivery type"></TextView>
+
+                <TextView
+                    android:id="@+id/orderDate"
+                    style="@style/CustomSmallTextView"
+                    formatDate="@{item.orderDate}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/default_extra_small_text"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/orderIdText"
+                    tools:text="12.01.2021"></TextView>
+
+                <TextView
+                    android:id="@+id/paymentStatusText"
+                    style="@style/CustomSmallTextView"
+                    paymentStatus="@{item.paymentStatusCode}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorRed"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryTypeText"
+                    tools:text="Payment Status"></TextView>
 
                 <TextView
                     android:id="@+id/storeNameText"
@@ -150,30 +182,40 @@
                     android:text="@{item.storeName}"
                     android:textAllCaps="true"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/orderAmountText"
+                    app:layout_constraintTop_toBottomOf="@+id/orderDate"
                     tools:text="storeName"></TextView>
 
                 <TextView
-                    android:textColor="@color/colorRed"
                     android:id="@+id/paymentTypeText"
                     style="@style/CustomSmallTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_small"
                     android:text="SADAD PAY"
-                    app:layout_constraintStart_toEndOf="@+id/storeNameText"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorRed"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/storeNameText"></TextView>
 
                 <TextView
-                    android:textStyle="bold"
                     android:id="@+id/orderStatusText"
                     style="@style/CustomSmallTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAllCaps="true"
                     android:textColor="@color/colorYellow"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/storeNameText"
                     tools:text="Order Accepted"></TextView>
+
+                <View
+                    android:id="@+id/vn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/margin"
+                    android:background="@color/colorBackground"
+                    app:layout_constraintTop_toBottomOf="@+id/orderStatusText"></View>
 
                 <TextView
                     android:id="@+id/orderDetailsLabel"
@@ -182,8 +224,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin"
                     android:text="@string/order_details"
+                    android:textAllCaps="true"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/orderStatusText"></TextView>
+                    app:layout_constraintTop_toBottomOf="@+id/vn1"></TextView>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/productList"
@@ -217,81 +260,81 @@
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.75" />
 
-                <TextView
-                    android:id="@+id/grossTotalLabel"
-                    style="@style/CustomMediumDarkTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:gravity="end"
-                    android:text="@string/gross_total"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toBottomOf="@+id/v1"></TextView>
+                <!--    <TextView
+                        android:id="@+id/grossTotalLabel"
+                        style="@style/CustomMediumDarkTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_small"
+                        android:gravity="end"
+                        android:text="@string/gross_total"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintStart_toStartOf="@+id/guideline"
+                        app:layout_constraintTop_toBottomOf="@+id/v1"></TextView>
 
-                <TextView
-                    android:id="@+id/grossTotalText"
-                    style="@style/CustomMediumDarkTextView"
-                    firstString="@{item.totalOrderAmount}"
-                    secondString="@{item.currencyCode}"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:gravity="end"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/guideline2"
-                    app:layout_constraintTop_toTopOf="@+id/grossTotalLabel"
-                    tools:text="200 LYD"></TextView>
+                    <TextView
+                        android:id="@+id/grossTotalText"
+                        style="@style/CustomMediumDarkTextView"
+                        firstString="@{item.totalOrderAmount}"
+                        secondString="@{item.currencyCode}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:gravity="end"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/guideline2"
+                        app:layout_constraintTop_toTopOf="@+id/grossTotalLabel"
+                        tools:text="200 LYD"></TextView>
 
-                <TextView
-                    android:id="@+id/deliveryLabel"
-                    style="@style/CustomMediumDarkTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/delivery"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toBottomOf="@+id/grossTotalLabel"></TextView>
+                    <TextView
+                        android:id="@+id/deliveryLabel"
+                        style="@style/CustomMediumDarkTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/delivery"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintStart_toStartOf="@+id/guideline"
+                        app:layout_constraintTop_toBottomOf="@+id/grossTotalLabel"></TextView>
 
-                <TextView
-                    android:id="@+id/deliveryTotalText"
-                    style="@style/CustomMediumDarkTextView"
-                    firstString="@{item.totalDeliveryCharges}"
-                    secondString="@{item.currencyCode}"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:gravity="end"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/guideline2"
-                    app:layout_constraintTop_toBottomOf="@+id/grossTotalText"
-                    tools:text="200 LYD"></TextView>
+                    <TextView
+                        android:id="@+id/deliveryTotalText"
+                        style="@style/CustomMediumDarkTextView"
+                        firstString="@{item.totalDeliveryCharges}"
+                        secondString="@{item.currencyCode}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:gravity="end"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/grossTotalText"
+                        tools:text="200 LYD"></TextView>
 
-                <TextView
-                    android:id="@+id/taxLabel"
-                    style="@style/CustomMediumDarkTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/tax"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                    app:layout_constraintStart_toStartOf="@+id/guideline"
-                    app:layout_constraintTop_toBottomOf="@+id/deliveryLabel"></TextView>
+                    <TextView
+                        android:id="@+id/taxLabel"
+                        style="@style/CustomMediumDarkTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/tax"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                        app:layout_constraintStart_toStartOf="@+id/guideline"
+                        app:layout_constraintTop_toBottomOf="@+id/deliveryLabel"></TextView>
 
-                <TextView
-                    android:id="@+id/taxText"
-                    style="@style/CustomMediumDarkTextView"
-                    firstString="@{item.totalTaxAmount}"
-                    secondString="@{item.currencyCode}"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_small"
-                    android:gravity="end"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/guideline2"
-                    app:layout_constraintTop_toBottomOf="@+id/deliveryTotalText"
-                    tools:text="200 LYD"></TextView>
+                    <TextView
+                        android:id="@+id/taxText"
+                        style="@style/CustomMediumDarkTextView"
+                        firstString="@{item.totalTaxAmount}"
+                        secondString="@{item.currencyCode}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_small"
+                        android:gravity="end"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/guideline2"
+                        app:layout_constraintTop_toBottomOf="@+id/deliveryTotalText"
+                        tools:text="200 LYD"></TextView>-->
 
                 <View
                     android:id="@+id/v2"
@@ -299,7 +342,7 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="@dimen/margin_small"
                     android:background="@color/colorBackground"
-                    app:layout_constraintTop_toBottomOf="@+id/taxLabel"></View>
+                    app:layout_constraintTop_toBottomOf="@+id/productList"></View>
 
                 <TextView
                     android:id="@+id/deliveryAddressLabel"
@@ -396,94 +439,94 @@
                     app:layout_constraintTop_toBottomOf="@+id/agentNumberText"></View>
 
                 <TextView
-                    tools:visibility="gone"
-                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
-                    android:textAllCaps="true"
                     android:id="@+id/deliveryConfirmationLabel"
-                    android:layout_marginTop="@dimen/margin_small"
-                    app:layout_constraintTop_toBottomOf="@+id/v4"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:text="@string/delivery_confirmation"
                     style="@style/CustomSmallTextView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="@string/delivery_confirmation"
+                    android:textAllCaps="true"
+                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/v4"
+                    tools:visibility="gone"></TextView>
 
                 <TextView
                     android:id="@+id/deliveryConfirmationText"
-                    tools:visibility="gone"
-                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
-                    android:text="@string/delivery_confirmation_message"
                     style="@style/CustomSmallDarkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delivery_confirmation_message"
+                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/deliveryConfirmationLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
+                    tools:visibility="gone"></TextView>
 
 
                 <TextView
-                    tools:visibility="gone"
-                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
-                    android:onClick="@{()->vm.sendOrderOTP()}"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:id="@+id/sendRequestBt"
-                    app:layout_constraintTop_toBottomOf="@+id/deliveryConfirmationText"
-                    android:paddingTop="@dimen/padding_small"
-                    android:paddingEnd="@dimen/padding"
-                    android:paddingStart="@dimen/padding"
-                    android:text="@string/send_request"
-                    android:textColor="@color/colorPrimary"
                     style="@style/CustomMediumTextView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
+                    android:layout_height="wrap_content"
+                    android:onClick="@{()->vm.sendOrderOTP()}"
+                    android:paddingStart="@dimen/padding"
+                    android:paddingTop="@dimen/padding_small"
+                    android:paddingEnd="@dimen/padding"
+                    android:text="@string/send_request"
+                    android:textColor="@color/colorPrimary"
+                    android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/deliveryConfirmationText"
+                    tools:visibility="gone"></TextView>
 
 
                 <RelativeLayout
                     android:id="@+id/orderOTPView"
-                    android:visibility="gone"
-                    app:layout_constraintTop_toBottomOf="@+id/sendRequestBt"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/sendRequestBt">
 
                     <TextView
-                        android:onClick="@{()->vm.candelOrderOTP()}"
                         android:id="@+id/cancelRequestBt"
-                        android:layout_centerHorizontal="true"
-                        android:paddingTop="@dimen/padding_small"
-                        android:paddingEnd="@dimen/padding"
-                        android:paddingStart="@dimen/padding"
-                        android:text="@string/cancel_request"
                         style="@style/CustomMediumRedTextView"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:onClick="@{()->vm.candelOrderOTP()}"
+                        android:paddingStart="@dimen/padding"
+                        android:paddingTop="@dimen/padding_small"
+                        android:paddingEnd="@dimen/padding"
+                        android:text="@string/cancel_request"></TextView>
 
                     <TextView
-                        android:layout_alignParentStart="true"
-                        android:layout_below="@+id/cancelRequestBt"
-                        android:text="@string/enter_order_code"
                         style="@style/CustomMediumDarkTextView"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cancelRequestBt"
+                        android:layout_alignParentStart="true"
+                        android:text="@string/enter_order_code"></TextView>
 
                     <TextView
-                        android:onClick="@{()->vm.resendOrderOTP()}"
                         android:id="@+id/resendOTPBt"
-                        android:layout_below="@+id/cancelRequestBt"
-                        android:text="@string/resend_code"
-                        android:paddingBottom="@dimen/padding_small"
-                        android:paddingStart="@dimen/padding"
-                        android:layout_alignParentEnd="true"
-                        android:textColor="@color/colorPrimary"
                         style="@style/CustomMediumTextView"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></TextView>
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cancelRequestBt"
+                        android:layout_alignParentEnd="true"
+                        android:onClick="@{()->vm.resendOrderOTP()}"
+                        android:paddingStart="@dimen/padding"
+                        android:paddingBottom="@dimen/padding_small"
+                        android:text="@string/resend_code"
+                        android:textColor="@color/colorPrimary"></TextView>
 
                     <com.ssas.jibli.agent.widgets.PinView
                         android:id="@+id/pinview"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/resendOTPBt"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></com.ssas.jibli.agent.widgets.PinView>
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/resendOTPBt"
+                        android:layout_centerHorizontal="true"></com.ssas.jibli.agent.widgets.PinView>
 
                 </RelativeLayout>
 
@@ -500,28 +543,26 @@
             android:padding="@dimen/padding">
 
             <Button
-                tools:visibility="gone"
-                android:visibility="@{isAccepted?View.VISIBLE:View.GONE}"
                 android:id="@+id/pickupBt"
                 style="@style/CustomPrimaryButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="@{()->vm.pickupFromStoreClick()}"
-                android:text="@string/pickup_from_store"></Button>
+                android:text="@string/pickup_from_store"
+                android:visibility="@{isAccepted?View.VISIBLE:View.GONE}"
+                tools:visibility="gone"></Button>
 
             <Button
-                tools:visibility="gone"
-                android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
                 android:id="@+id/deliverToCustomerBt"
                 style="@style/CustomPrimaryButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="@{()->vm.deliverToCustomer()}"
-                android:text="@string/delivery_to_customer"></Button>
+                android:text="@string/delivery_to_customer"
+                android:visibility="@{isShipped?View.VISIBLE:View.GONE}"
+                tools:visibility="gone"></Button>
 
             <TextView
-                tools:visibility="gone"
-                android:visibility="@{isAccepted?View.VISIBLE:View.GONE}"
                 style="@style/CustomRegularTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -532,7 +573,9 @@
                 android:paddingTop="@dimen/padding_small"
                 android:paddingEnd="@dimen/padding"
                 android:text="@string/decline_pickup"
-                android:textColor="@color/colorRed"></TextView>
+                android:textColor="@color/colorRed"
+                android:visibility="@{isAccepted?View.VISIBLE:View.GONE}"
+                tools:visibility="gone"></TextView>
         </RelativeLayout>
 
     </LinearLayout>
