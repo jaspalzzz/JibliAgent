@@ -46,6 +46,7 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
             OrderDetailActivity::class.java, bundle
         )
     }
+
     override fun subscribeToEvents(vm: HomeVM) {
         binding.vm = vm
 

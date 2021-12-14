@@ -118,6 +118,8 @@
     <string name="my_orders">My Orders</string>
     <string name="scan_order_barcode">Scan Order Barcode</string>
     <string name="camera_permission_msg">Please turn on camera permission from settings to upload image.</string>
-
+    <string name="agent_barcode_error">Opps!! this order is not assigned to you. For more information contact customer support.</string>
+    <string name="view_details"><b>View details</b></string>
+    <string name="all">All</string>
 
 </resources>

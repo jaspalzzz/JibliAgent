@@ -44,4 +44,7 @@ interface ApiService {
 
 	@POST(NetworkEndPoints.DECLINE_PICKUP_ORDER)
 	suspend fun declinePickupOrder(@Body params: JsonObject): CommonResponse
+
+	@POST(NetworkEndPoints.UPDATE_CUSTOMER_PAYMENT_ORDER_STATUS)
+	suspend fun updateCustomerOrderPaymentStatus(@Body params: JsonObject): CommonResponse
 }

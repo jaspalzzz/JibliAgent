@@ -9,10 +9,12 @@ import com.ssas.jibli.agent.R
 import com.ssas.jibli.agent.base.BaseActivity
 import com.ssas.jibli.agent.data.constants.RequestCodes
 import com.ssas.jibli.agent.data.constants.SharingKeys
+import com.ssas.jibli.agent.data.constants.ValConstant
 import com.ssas.jibli.agent.data.models.searchOrder.OrderTransactionArr
 import com.ssas.jibli.agent.databinding.ActivityOrderSeeAllBinding
 import com.ssas.jibli.agent.network.ApiStatusCodes
 import com.ssas.jibli.agent.network.Status
+import com.ssas.jibli.agent.repo.home.HomeClickEvents
 import com.ssas.jibli.agent.repo.home.HomeVM
 import com.ssas.jibli.agent.ui.home.adapter.ReviewOrderTransactionAdapter
 import com.ssas.jibli.agent.utils.Utils
@@ -24,6 +26,7 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
     private var loading = true
     private var isScrolling = false
     private var isFirstLoading = true
+    private var statusCode:String = ""
     private var orderAdapter: ReviewOrderTransactionAdapter? = null
 
     override val bindingActivity: ActivityBinding
@@ -37,20 +40,19 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
     }
 
     private fun setToolbarTitle(title: Int) {
-        binding.searchOrderToolbar.toolbarTitle.setText(title)
+        binding.toolbarTitle.setText(title)
     }
 
     private fun initToolbar() {
-        setToolbarTitle(R.string.orders_delivery)
-        binding.searchOrderToolbar.toolbarBackBt.setOnClickListener {
+        setToolbarTitle(R.string.my_orders)
+        binding.toolbarBackBt.setOnClickListener {
             onBackPressed()
         }
     }
 
     private fun searchOrderList() {
-        viewModel.searchOrderDetails(pageNumber, limit, true, false,"")
+        viewModel.searchOrderDetails(pageNumber, limit, true, false,"",statusCode)
     }
-
 
     private fun inflateOrderList() {
         var layoutManager = LinearLayoutManager(this@OrderSeeAllActivity)
@@ -97,6 +99,35 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
             }
         })
 
+        vm.clickEvents.observe(this, Observer {
+            when(it){
+                HomeClickEvents.FILTER_ALL_CLICK ->{
+                    statusCode = ""
+                    filterOrderList()
+                }
+                HomeClickEvents.FILTER_READY_FOR_PICKUP_CLICK ->{
+                    statusCode = ValConstant.READY_FOR_DELIVERY
+                    filterOrderList()
+                }
+                HomeClickEvents.FILTER_UNDER_DELIVERY_CLICK->{
+                    statusCode = ValConstant.SHIPPED
+                    filterOrderList()
+                }
+                HomeClickEvents.FILTER_DELIVERED_CLICK ->{
+                    statusCode = ValConstant.DELIVERED
+                    filterOrderList()
+                }
+
+                HomeClickEvents.FILTER_CLICK ->{
+                    if(binding.followToogleBt.isChecked){
+                        binding.showFilterOption = true
+                    }else{
+                        binding.showFilterOption = false
+                    }
+                }
+            }
+        })
+
         vm.searchOrder.observe(this, Observer {
             when (it.status) {
                 Status.LOADING -> {
@@ -132,6 +163,12 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
                 }
             }
         })
+    }
+
+    private fun filterOrderList(){
+        orderAdapter?.clearData()
+        isFirstLoading = true
+        searchOrderList()
     }
 
     private fun addOrderData(orderList: ArrayList<OrderTransactionArr>) {

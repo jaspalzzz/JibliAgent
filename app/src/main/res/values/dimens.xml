@@ -39,5 +39,6 @@
     <dimen name="flag_icon_width">32dp</dimen>
     <dimen name="flag_icon_height">20dp</dimen>
 
+    <dimen name="small_switch_padding">10dp</dimen>
 
 </resources>

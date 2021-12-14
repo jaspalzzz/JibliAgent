@@ -18,6 +18,8 @@ object NetworkEndPoints {
 	const val ORDER_CONFIRMATION_CODE = "order/generateOrderConfirmationCode"
 	const val RESEND_ORDER_CONFIRMATION_CODE = "order/resendOrderConfirmationCode"
 	const val DECLINE_PICKUP_ORDER = "order/declinePickupOrderByAgent"
+	const val UPDATE_CUSTOMER_PAYMENT_ORDER_STATUS = "order/updateCustomerOrderPaymentStatus"
+
 
 	/*
 	* Auth json object method

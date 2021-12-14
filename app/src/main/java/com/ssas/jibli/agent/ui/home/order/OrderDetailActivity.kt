@@ -1,5 +1,6 @@
 package com.ssas.jibli.agent.ui.home.order
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -75,7 +76,7 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
     }
 
     private fun searchOrderDetails() {
-        viewModel.searchOrderDetails(0, 10, false, true, orderTransactionId)
+        viewModel.searchOrderDetails(0, 10, false, true, orderTransactionId, "")
     }
 
     override fun subscribeToEvents(vm: HomeVM) {
@@ -100,7 +101,7 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
                     )
                 }
 
-                HomeClickEvents.RESEND_ORDER_OTP ->{
+                HomeClickEvents.RESEND_ORDER_OTP -> {
                     vm.resendOrderConfirmationCode(
                         orderItem?.orderTransactionId ?: "",
                         orderItem?.customerCode ?: ""
@@ -182,9 +183,15 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
                             handlePaymentStatus()
                             handleDeliveryType()
                             paymentType(response?.get(0))
-                            if (!response.get(0).customerOrderDetailsList.isNullOrEmpty()) {
+                            if (!response[0].customerOrderDetailsList.isNullOrEmpty()) {
                                 inflateProductList(response.get(0).customerOrderDetailsList!!)
                             }
+                        } else if (responseCode == "GE10010") {
+                            alertDialogShow(this, getString(R.string.agent_barcode_error),
+                                DialogInterface.OnClickListener { dialog, which ->
+                                    finish()
+                                }
+                            )
                         } else {
                             alertDialogShow(this, it.response?.responseCodeVO?.responseValue ?: "")
                         }
@@ -220,13 +227,13 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
                             }, 1000)
                         }
                         "ORDERS10005" -> {
-                            var dialog = ToastDialog.newInstance(R.drawable.ic_check)
-                            dialog.show(supportFragmentManager, "")
-                            Handler(Looper.myLooper()!!).postDelayed({
-                                dialog.dismiss()
-                                setResult(RequestCodes.CHANGE_ORDER_RESULT_CODE)
-                                finish()
-                            }, 1000)
+                                var dialog = ToastDialog.newInstance(R.drawable.ic_check)
+                                dialog.show(supportFragmentManager, "")
+                                Handler(Looper.myLooper()!!).postDelayed({
+                                    dialog.dismiss()
+                                    setResult(RequestCodes.CHANGE_ORDER_RESULT_CODE)
+                                    finish()
+                                }, 1000)
                         }
                         else -> {
                             binding.pinview?.clearText()
@@ -329,12 +336,13 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
                 }
             }
         })
-
     }
 
     private fun confirmOrderDialog() {
-        var dialog = ConfirmOrderDialog.newInstance(orderItem?.orderTransactionId ?: "",R.drawable.ic_confirm_order,
-        getString(R.string.confirm_delivery),getString(R.string.like_to_confirm_Delivery))
+        var dialog = ConfirmOrderDialog.newInstance(
+            orderItem?.orderTransactionId ?: "", R.drawable.ic_confirm_order,
+            getString(R.string.confirm_delivery), getString(R.string.like_to_confirm_Delivery)
+        )
         dialog.setListener(object : ConfirmOrderDialog.SuccessDialogListener {
             override fun onPositiveButtonClick(dialog: ConfirmOrderDialog) {
                 dialog.dismiss()
@@ -353,9 +361,11 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
         dialog.show(supportFragmentManager, "")
     }
 
-    private fun confirmPickupDeclineOrder(){
-        var dialog = ConfirmOrderDialog.newInstance(orderItem?.orderTransactionId ?: "",R.drawable.ic_decline_pickup,
-            getString(R.string.decline_pickup),getString(R.string.decline_pickup_message))
+    private fun confirmPickupDeclineOrder() {
+        var dialog = ConfirmOrderDialog.newInstance(
+            orderItem?.orderTransactionId ?: "", R.drawable.ic_decline_pickup,
+            getString(R.string.decline_pickup), getString(R.string.decline_pickup_message)
+        )
         dialog.setListener(object : ConfirmOrderDialog.SuccessDialogListener {
             override fun onPositiveButtonClick(dialog: ConfirmOrderDialog) {
                 dialog.dismiss()
@@ -369,12 +379,17 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
         dialog.show(supportFragmentManager, "")
     }
 
-    private fun handlePaymentStatus(){
+    private fun handlePaymentStatus() {
         binding.isPaid = orderItem?.paymentStatusCode == ValConstant.PAID
     }
 
     private fun handleOrderStatus() {
         when (orderItem?.statusCode) {
+
+            ValConstant.ACCEPTED -> {
+                binding.orderStatusText.text = getString(R.string.accepted)
+            }
+
             ValConstant.READY_FOR_DELIVERY -> {
                 binding.orderStatusText.text = getString(R.string.ready_for_pickup)
                 binding.isAccepted = true
@@ -385,7 +400,7 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
                 binding.isShipped = true
                 binding.isAccepted = false
             }
-            ValConstant.DELIVERED ->{
+            ValConstant.DELIVERED -> {
                 binding.orderStatusText.text = getString(R.string.delivered)
             }
         }
@@ -409,14 +424,14 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
         }
     }
 
-    private fun handleDeliveryType(){
-        if(orderItem?.isRegularDelivery == "Y"){
+    private fun handleDeliveryType() {
+        if (orderItem?.isRegularDelivery == "Y") {
             binding.deliveryTypeText.text = getString(R.string.regular)
-            binding.deliveryTypeText.setTextColor(ActivityCompat.getColor(this,R.color.colorGreen))
+            binding.deliveryTypeText.setTextColor(ActivityCompat.getColor(this, R.color.colorGreen))
         }
-        if(orderItem?.isPremiumDelivery == "Y"){
+        if (orderItem?.isPremiumDelivery == "Y") {
             binding.deliveryTypeText.text = getString(R.string.premium)
-            binding.deliveryTypeText.setTextColor(ActivityCompat.getColor(this,R.color.colorRed))
+            binding.deliveryTypeText.setTextColor(ActivityCompat.getColor(this, R.color.colorRed))
         }
     }
 

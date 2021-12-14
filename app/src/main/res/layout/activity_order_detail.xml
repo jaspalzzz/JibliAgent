@@ -75,8 +75,7 @@
                 <TextView
                     android:id="@+id/customerIdText"
                     style="@style/CustomSmallTextView"
-                    colonFirstString="@{@string/customer_id}"
-                    colonSecondString="@{item.customerCode}"
+                    android:text="@{item.customerCode}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/default_extra_small_text"

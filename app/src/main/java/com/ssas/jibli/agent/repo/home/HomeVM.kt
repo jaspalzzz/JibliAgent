@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.ssas.jibli.agent.BuildConfig
 import com.ssas.jibli.agent.MApplication
+import com.ssas.jibli.agent.data.constants.ValConstant
 import com.ssas.jibli.agent.data.models.CommonResponse
 import com.ssas.jibli.agent.data.models.merchantStore.MerchantStoresResponse
 import com.ssas.jibli.agent.data.models.paymentChannel.PaymentChannelsResponse
@@ -100,6 +101,26 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
         clickEvents.value = HomeClickEvents.PICKUP_DELIVERIES
     }
 
+    fun allFilterClick() {
+        clickEvents.value = HomeClickEvents.FILTER_ALL_CLICK
+    }
+
+    fun readyForPickupFilterClick() {
+        clickEvents.value = HomeClickEvents.FILTER_READY_FOR_PICKUP_CLICK
+    }
+
+    fun underDeliveryFilterClick() {
+        clickEvents.value = HomeClickEvents.FILTER_UNDER_DELIVERY_CLICK
+    }
+
+    fun deliveredFilterClick() {
+        clickEvents.value = HomeClickEvents.FILTER_DELIVERED_CLICK
+    }
+
+    fun onFilterButtonClick() {
+        clickEvents.value = HomeClickEvents.FILTER_CLICK
+    }
+
     /*
     * SearchOrderNotification
     * */
@@ -110,7 +131,8 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
         limit: Int,
         hasPagination: Boolean,
         viewChildOrders: Boolean,
-        orderTransactionId: String
+        orderTransactionId: String,
+        statusCode: String
     ) {
         if (Utils.isInternet(getApplication())) {
             searchOrder.postValue(APIResponse<SearchOrderResponse>().onLoading() as APIResponse<SearchOrderResponse>)
@@ -124,6 +146,9 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
             if (hasPagination) {
                 params.addProperty("pageNumber", pageNumber)
                 params.addProperty("limit", limit)
+            }
+            if (!statusCode.isNullOrEmpty()) {
+                params.addProperty("statusCode", statusCode)
             }
 
             viewModelScope.async(Dispatchers.IO) {
@@ -269,6 +294,10 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
                 orderItem?.orderConfirmationCode = orderOTPCode
             }
 
+            if (orderItem?.isCashOnDelivery == "Y" || orderItem?.isMumalatPay == "Y") {
+                orderItem?.paymentStatusCode = ValConstant.PAID
+            }
+
             var paramsString = Gson().toJson(orderItem)
             var params = Gson().fromJson(paramsString, JsonObject::class.java)
 
@@ -292,6 +321,47 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
             networkError.value = true
         }
     }
+
+
+    // update payment status code
+
+    val updatePaymentStatusResponse =
+        MutableLiveData<APIResponse<CommonResponse>>()
+
+    fun updateCustomerOrderPaymentStatus(orderItem: OrderTransactionArr?) {
+        if (Utils.isInternet(getApplication())) {
+            updatePaymentStatusResponse.postValue(
+                APIResponse<CommonResponse>().onLoading() as APIResponse<CommonResponse>
+            )
+            var params = NetworkEndPoints.authJsonObject()
+            params.addProperty("customerCode", orderItem?.customerCode)
+            params.addProperty("userProfileId", orderItem?.userProfileId)
+            params.addProperty("orderTransactionId", orderItem?.orderTransactionId)
+            params.addProperty("customerOrderMstId", orderItem?.customerOrderMstId)
+            params.addProperty("paymentStatusCode", "PAID")
+            params.addProperty("paymentTransactionId", orderItem?.paymentTransactionId)
+
+            viewModelScope.async(Dispatchers.IO) {
+                try {
+                    var response = homeRepo.updateCustomerOrderPaymentStatus(params)
+                    updatePaymentStatusResponse.postValue(
+                        APIResponse<CommonResponse>().onSuccess(
+                            response
+                        ) as APIResponse<CommonResponse>
+                    )
+                } catch (e: Exception) {
+                    updatePaymentStatusResponse.postValue(
+                        APIResponse<CommonResponse>().onError(
+                            e
+                        ) as APIResponse<CommonResponse>
+                    )
+                }
+            }
+        } else {
+            networkError.value = true
+        }
+    }
+
 
     /*
     * order confirmation code

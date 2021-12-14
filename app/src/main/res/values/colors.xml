@@ -6,10 +6,10 @@
     <color name="colorBackground">#E5E5E5</color>
     <color name="colorLightGray">#F4F6FB</color>
     <color name="colorWhite">#ffffff</color>
-    <color name="black">#000000</color>
+    <color name="colorBlack">#000000</color>
     <color name="colorBlue">#3347FF</color>
     <color name="colorGreen">#33C66D</color>
-    <color name="colorGrey">#303748</color>
+    <color name="colorGrey">#A3A6AC</color>
     <color name="colorYellow">#FED428</color>
     <color name="colorRed">#F15744</color>
 </resources>

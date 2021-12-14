@@ -44,7 +44,7 @@ object BindingUtils {
         if(!paymentStatus.isNullOrEmpty()){
             if(paymentStatus == ValConstant.PAID){
                 textView.text = textView.context.getString(R.string.paid)
-                textView.setTextColor(ActivityCompat.getColor(textView.context,R.color.colorGreen))
+                textView.setTextColor(ActivityCompat.getColor(textView.context,R.color.colorPrimary))
             }else{
                 textView.text = textView.context.getString(R.string.not_paid)
                 textView.setTextColor(ActivityCompat.getColor(textView.context,R.color.colorRed))

@@ -14,6 +14,10 @@
         <variable
             name="isEmptySalesOrder"
             type="Boolean" />
+
+        <variable
+            name="showFilterOption"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,22 +25,99 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include
+        <RelativeLayout
             android:id="@+id/searchOrderToolbar"
-            layout="@layout/toolbar" />
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/myLiveOrders"
-            style="@style/CustomMediumDarkTextView"
-            android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/toolbarBackBt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/margin"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/padding_medium"
+                android:src="@drawable/ic_arrow_white_24" />
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                style="@style/CustomRegularLightTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                tools:text="Title" />
+
+            <ToggleButton
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/followToogleBt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin"
+                android:background="@drawable/filter_toggle_button"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:onClick="@{()->vm.onFilterButtonClick()}"
+                android:padding="0dp"
+                android:textOff="@null"
+                android:textOn="@null"></ToggleButton>
+
+        </RelativeLayout>
+
+        <RadioGroup
+            android:visibility="@{showFilterOption?View.VISIBLE:View.GONE}"
+            android:id="@+id/filterToggleButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin"
-            android:drawableStart="@drawable/ic_review_order"
-            android:drawablePadding="@dimen/padding_small"
-            android:text="@string/orders_delivery"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchOrderToolbar" />
+            android:layout_margin="@dimen/margin"
+            android:background="@drawable/fill_et_bg"
+            android:checkedButton="@+id/allFilterBt"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_x_small"
+            app:layout_constraintTop_toBottomOf="@+id/searchOrderToolbar">
+
+            <RadioButton
+                android:id="@+id/allFilterBt"
+                style="@style/SwitchSmallButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->vm.allFilterClick()}"
+                android:text="@string/all" />
+
+            <RadioButton
+                android:id="@+id/readyForPickupBt"
+                style="@style/SwitchSmallButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->vm.readyForPickupFilterClick()}"
+                android:text="@string/ready_for_pickup" />
+
+            <RadioButton
+                android:id="@+id/underDeliveryBt"
+                style="@style/SwitchSmallButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->vm.underDeliveryFilterClick()}"
+                android:text="@string/under_delivery" />
+
+            <RadioButton
+                android:id="@+id/deliveredBt"
+                style="@style/SwitchSmallButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->vm.deliveredFilterClick()}"
+                android:text="@string/delivered" />
+        </RadioGroup>
+
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefresh"
@@ -45,7 +126,7 @@
             android:layout_marginTop="@dimen/margin"
             android:layout_marginBottom="@dimen/margin"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/myLiveOrders">
+            app:layout_constraintTop_toBottomOf="@+id/filterToggleButton">
 
 
             <RelativeLayout

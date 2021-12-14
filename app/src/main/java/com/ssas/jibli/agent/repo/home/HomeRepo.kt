@@ -52,4 +52,8 @@ class HomeRepo {
         return apiService.declinePickupOrder(params)
     }
 
+    suspend fun updateCustomerOrderPaymentStatus(params: JsonObject): CommonResponse{
+        return apiService.updateCustomerOrderPaymentStatus(params)
+    }
+
 }

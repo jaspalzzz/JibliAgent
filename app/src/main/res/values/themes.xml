@@ -69,7 +69,7 @@
     </style>
 
     <style name="CustomRegularDarkTextView" parent="CustomRegularTextView">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="CustomRegularLightTextView" parent="CustomRegularTextView">
@@ -85,7 +85,7 @@
     </style>
 
     <style name="CustomSmallDarkTextView" parent="CustomSmallTextView">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="CustomSmallLightTextView" parent="CustomSmallTextView">
@@ -94,7 +94,7 @@
 
     <style name="CustomExtraSmallTextView" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/default_extra_small_text</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="CustomMediumTextView" parent="android:Widget.TextView">
@@ -106,7 +106,7 @@
     </style>
 
     <style name="CustomMediumDarkTextView" parent="CustomMediumTextView">
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="CustomMediumRedTextView" parent="CustomMediumTextView">
@@ -115,7 +115,7 @@
 
     <style name="CustomMediumBoldTextView" parent="CustomMediumTextView">
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="AlertDialogAnimation">
@@ -126,6 +126,25 @@
     <style name="AlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowMinWidthMajor">80%</item>
         <item name="android:windowMinWidthMinor">80%</item>
+    </style>
+
+    <style name="SwitchButtonStyle">
+        <item name="android:paddingTop">@dimen/padding_medium</item>
+        <item name="android:paddingBottom">@dimen/padding_medium</item>
+        <item name="android:paddingLeft">@dimen/padding_medium</item>
+        <item name="android:paddingRight">@dimen/padding_medium</item>
+        <item name="android:textSize">@dimen/default_small_text</item>
+        <item name="android:background">@drawable/switch_toggle_bg</item>
+        <item name="android:textColor">@drawable/switch_text_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SwitchSmallButton" parent="SwitchButtonStyle">
+        <item name="android:paddingTop">@dimen/padding_x_small</item>
+        <item name="android:paddingBottom">@dimen/padding_x_small</item>
+        <item name="android:paddingLeft">@dimen/padding_medium</item>
+        <item name="android:paddingRight">@dimen/padding_medium</item>
     </style>
 
 
