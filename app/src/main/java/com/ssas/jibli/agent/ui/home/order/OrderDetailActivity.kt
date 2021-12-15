@@ -436,7 +436,7 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
     }
 
     private fun inflateProductList(customerOrderDetailsList: ArrayList<CustomerOrderDetailsList>) {
-        productListAdapter = OrderProductAdapter()
+        productListAdapter = OrderProductAdapter(this)
         productListAdapter?.addData(customerOrderDetailsList)
         binding.productList.adapter = productListAdapter
     }

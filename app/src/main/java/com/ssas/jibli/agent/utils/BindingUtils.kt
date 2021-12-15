@@ -12,6 +12,11 @@ import java.util.*
 
 object BindingUtils {
 
+    @JvmStatic
+    @BindingAdapter(value = ["productUnitText"])
+    fun productUnitText(textView: TextView, unit: String?) {
+        textView.text = Utils.productUnit(textView.context,unit?:"")
+    }
 
     @JvmStatic
     @BindingAdapter(value = ["generateBarcodeImage"])

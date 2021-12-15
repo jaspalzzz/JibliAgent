@@ -128,8 +128,7 @@
                 <TextView
                     android:id="@+id/orderIdText"
                     style="@style/CustomSmallDarkTextView"
-                    colonFirstString="@{@string/id}"
-                    colonSecondString="@{item.orderTransactionId}"
+                    android:text="@{item.orderTransactionId}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin"
