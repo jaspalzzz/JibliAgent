@@ -147,8 +147,7 @@
                 <TextView
                     android:id="@+id/orderId"
                     style="@style/CustomSmallDarkTextView"
-                    firstString="@{@string/order_id}"
-                    secondString="@{item.orderTransactionId}"
+                    android:text="@{item.orderTransactionId}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -156,7 +155,7 @@
                     app:layout_constraintStart_toStartOf="@+id/storeNameView"
                     app:layout_constraintTop_toBottomOf="@+id/storeNameView"
                     app:layout_constraintVertical_chainStyle="packed"
-                    tools:text="Order Id: 58599" />
+                    tools:text="00000000058599" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

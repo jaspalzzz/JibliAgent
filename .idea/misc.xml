@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/Workspace/JIBLI_AGENT/git/JibliAgent/app/src/main/res/layout/activity_order_detail.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android/Workspace/JIBLI_AGENT/git/JibliAgent/app/src/main/res/layout/item_order_product.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android/Workspace/JIBLI_AGENT/git/JibliAgent/app/src/main/res/layout/order_transaction_review_item.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

@@ -122,4 +122,11 @@
     <string name="view_details"><b>View details</b></string>
     <string name="all">All</string>
 
+    <string name="kg">KG</string>
+    <string name="bundle">Bundle</string>
+    <string name="box">Box</string>
+    <string name="piece">Piece</string>
+    <string name="pound">Pound</string>
+    <string name="other">Other</string>
+
 </resources>

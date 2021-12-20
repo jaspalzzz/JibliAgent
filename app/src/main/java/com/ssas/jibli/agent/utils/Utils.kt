@@ -277,4 +277,36 @@ object Utils {
         }
     }
 
+
+    fun productUnit(context: Context, unit: String): String {
+        return when (unit) {
+            "1" -> {
+                context.getString(R.string.kg)
+            }
+
+            "2" -> {
+                context.getString(R.string.bundle)
+            }
+
+            "3" -> {
+                context.getString(R.string.box)
+            }
+
+            "4" -> {
+                context.getString(R.string.piece)
+            }
+
+            "5" -> {
+                context.getString(R.string.pound)
+            }
+
+            "6" -> {
+                context.getString(R.string.other)
+            }
+
+            else -> {
+                ""
+            }
+        }
+    }
 }
