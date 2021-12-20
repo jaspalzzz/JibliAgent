@@ -6,250 +6,31 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="OkHttp" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Firebase" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="502901e9-0443-477f-aa7d-a2b74dfe91e2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/ssas/jibli/agent/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-playstore.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/MApplication.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/base/BaseActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/base/BaseActivitySimple.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/base/BaseBindingActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/base/BaseBindingFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/base/BaseBottomSheetFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/base/BaseDialogFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/base/BaseFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/base/BaseFragmentSimple.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/constants/RequestCodes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/constants/SharingKeys.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/constants/TermsConditionsCode.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/constants/ValConstant.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/CommonResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/ErrorResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/LoginResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/ResponseCodeVO.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/UserProfileArr.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/merchantStore/MerchantStoresResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/merchantStore/SearchMerchantStoreArr.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/paymentChannel/PaymentChannelsResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/paymentChannel/StorePaymentChannel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/searchNotification/NotificationHistory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/searchNotification/SearchNotificationHistoryResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/searchOrder/CustomerOrderDetailsList.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/searchOrder/OrderHistoryList.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/searchOrder/OrderTransactionArr.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/models/searchOrder/SearchOrderResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/prefs/PrefKeys.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/prefs/PrefMain.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/prefs/SharedPrefPrint.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/di/components/AppComponent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/di/components/NetComponents.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/di/modules/AppModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/di/modules/NetModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/dialogs/CommonDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/dialogs/ConfirmOrderDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/dialogs/CountryPickerAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/dialogs/CountryPickerDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/dialogs/ProgressCircularDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/dialogs/ProgressDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/dialogs/ToastDialog.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/network/APIResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/network/ApiService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/network/ApiServiceDinarPay.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/network/ApiStatusCodes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/network/NetworkEndPoints.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/network/Status.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/repo/auth/AuthClickEvents.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/repo/auth/AuthRepo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/repo/auth/AuthVM.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/repo/home/HomeClickEvents.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/repo/home/HomeRepo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/repo/home/HomeVM.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/service/MyFirebaseMessagingService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/auth/ForgetPasswordActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/auth/LandingActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/auth/LoginActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/auth/SplashActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/DashboardActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/adapter/MerchantStoreAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/adapter/OrderProductAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/adapter/OrderTransactionAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/adapter/ReviewOrderTransactionAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/adapter/SearchNotificationAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/notification/NotificationsActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/order/OrderDetailActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/order/OrderSeeAllActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/order/ViewMapActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/shops/ViewMerchantActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/shops/ViewShopsActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/BindingImageAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/BindingUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/ConnectivityReceiver.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/LanguageUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/OnActivityResult.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/PermissionResultListener.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/PermissionUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/Utils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/countrycode/Country.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/countrycode/CountryUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/widgets/BaseRecyclerViewClick.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/widgets/FooterRecyclerView.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/widgets/ItemClickListener.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/widgets/PinView.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/anim/scale_down.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/anim/scale_up.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_account_lock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_cash_delivery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_confirm_order.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_decline_pickup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_dinar_pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_mulamat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_no_notifications.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_sadad_pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_scoter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_scoter_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_sent_email.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_splash_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_store_shutter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_view.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/flag_libya.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/flag_transparent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/flag_tunisia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-nodpi/flag_turkey.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_account_lock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_cash_delivery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_confirm_order.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_decline_pickup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_dinar_pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_mulamat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_no_notifications.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_sadad_pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_scoter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_scoter_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_sent_email.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_splash_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_store_shutter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/ic_view.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_account_lock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_cash_delivery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_confirm_order.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_decline_pickup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_dinar_pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_mulamat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_no_notifications.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_sadad_pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_scoter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_scoter_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_sent_email.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_splash_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_store_shutter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/ic_view.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_account_lock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_cash_delivery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_confirm_order.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_decline_pickup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_dinar_pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_mulamat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_no_notifications.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_sadad_pay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_scoter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_scoter_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_sent_email.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_splash_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_store_shutter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/ic_view.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/app_header.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/blue_bt_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/drawable_top_rounded_corner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/empty_orders.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/et_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/et_gray_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/et_green_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/fill_et_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_down_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_white_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_check_circle_black_24dp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_gray_circle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home_notification.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_logout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notification.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notification_bell.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_order_status.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_process.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_processed.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_processing.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_review_order.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_view_address.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_visibility_black_24dp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_visibility_off_black_24dp.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/jibli_logo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/otp_selector.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/round_corner_white_bg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_dashboard.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_landing.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notifications.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_detail.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_see_all.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_map.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_merchant.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_shops.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/common_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/confirm_delivery_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_country_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/footer_loader.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_country.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_merchant_store.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_order_product.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_search_notification.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_transaction_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/order_transaction_review_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/pin_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/progress_circular_dailog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/progress_dialog.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/toast_dialog_layout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/toolbar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/loading.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/strings_country.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/path_provider.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/ssas/jibli/agent/ExampleUnitTest.kt" afterDir="false" />
+    <list default="true" id="502901e9-0443-477f-aa7d-a2b74dfe91e2" name="Default Changelist" comment="Barcode scanner">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_core_3_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_journeyapps_zxing_android_embedded_4_2_0_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Jibli_Agent.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Jibli_Agent.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,16 +59,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Kotlin Class" />
         <option value="Kotlin Object" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="layoutResourceFile_vertical" />
       </list>
     </option>
   </component>
   <component name="GenerateSignedApkSettings">
     <option name="EXPORT_PRIVATE_KEY" value="false" />
-    <option name="KEY_STORE_PATH" value="D:\Work\AWorkspace\Jibli_Agent\release\keystore\jibli_agent_keystore.jks" />
+    <option name="KEY_STORE_PATH" value="D:\Work\AWorkspace\Jibli_Agent\release\release\keystore\jibli_agent_keystore.jks" />
     <option name="KEY_ALIAS" value="Jibli_Agent_2021" />
     <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
@@ -305,13 +87,22 @@
     <property name="DEBUGGABLE_DEVICE" value="huawei-jkm_al00a-DHE4C18B19000553" />
     <property name="DEBUGGABLE_PROCESS" value="com.ssas.jibli.agent" />
     <property name="DEBUGGER_ID" value="Auto" />
-    <property name="ExportApk.ApkPath" value="D:\Work\AWorkspace\Jibli_Agent\release\builds\21-08-2021" />
+    <property name="ExportApk.ApkPath" value="D:\Work\AWorkspace\Jibli_Agent\release\builds\24-11-2021" />
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="android-custom-viewC:/Users/HP/.gradle/caches/modules-2/files-2.1/com.journeyapps/zxing-android-embedded/3.6.0/32f275c483fab0ce2b99b4c12b0c45cf0516a294/zxing-android-embedded-3.6.0-sources.jar!/com/journeyapps/barcodescanner/DecoratedBarcodeView.java_SELECTED" value="DecoratedBarcodeView" />
+    <property name="android-custom-viewC:/Users/HP/AppData/Local/Android/Sdk/sources/android-30/android/widget/ImageView.java_SELECTED" value="ImageView" />
+    <property name="android-custom-viewD:/Work/AWorkspace/Jibli_Agent/code/git/JibliAgent/app/src/main/java/com/ssas/jibli/agent/widgets/CardImageItem.kt_SELECTED" value="CardImageItem" />
+    <property name="android-custom-viewD:/Work/AWorkspace/Jibli_Agent/code/git/JibliAgent/app/src/main/java/com/ssas/jibli/agent/widgets/PinView.kt_SELECTED" value="PinView" />
     <property name="android-custom-viewD:/Work/AWorkspace/Jibli_Agent/code/local/JibliAgent/app/src/main/java/com/ssas/jibli/agent/widgets/PinView.kt_SELECTED" value="PinView" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../release/builds/24-11-2021" />
+    <property name="multi-representation-previewC:/Users/HP/.gradle/caches/modules-2/files-2.1/com.journeyapps/zxing-android-embedded/3.6.0/32f275c483fab0ce2b99b4c12b0c45cf0516a294/zxing-android-embedded-3.6.0-sources.jar!/com/journeyapps/barcodescanner/DecoratedBarcodeView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewC:/Users/HP/AppData/Local/Android/Sdk/sources/android-30/android/widget/ImageView.java_selected" value="Custom views" />
+    <property name="multi-representation-previewD:/Work/AWorkspace/Jibli_Agent/code/git/JibliAgent/app/src/main/java/com/ssas/jibli/agent/widgets/CardImageItem.kt_selected" value="Custom views" />
+    <property name="multi-representation-previewD:/Work/AWorkspace/Jibli_Agent/code/git/JibliAgent/app/src/main/java/com/ssas/jibli/agent/widgets/PinView.kt_selected" value="Custom views" />
     <property name="multi-representation-previewD:/Work/AWorkspace/Jibli_Agent/code/local/JibliAgent/app/src/main/java/com/ssas/jibli/agent/widgets/PinView.kt_selected" value="Custom views" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
@@ -321,19 +112,15 @@
       <recent name="com.ssas.jibli.agent.ui.home.shops" />
       <recent name="com.ssas.jibli.agent.ui.home.order" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\local\JibliAgent\app\src\main\res\drawable-xxxhdpi" />
-      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\local\JibliAgent\app\src\main\res\drawable-xxhdpi" />
-      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\local\JibliAgent\app\src\main\res\drawable-xhdpi" />
-      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\local\JibliAgent\app\src\main\res\drawable-hdpi" />
-      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\local\JibliAgent\app\src\main\res\drawable" />
-    </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="com.ssas.jibli.agent.widgets" />
       <recent name="com.ssas.jibli.agent.dialogs" />
       <recent name="com.ssas.jibli.agent.ui.home.adapter" />
       <recent name="com.ssas.jibli.agent.data.models" />
       <recent name="com.ssas.jibli.agent.utils.countrycode" />
+    </key>
+    <key name="android.template.-1186387690">
+      <recent name="com.ssas.jibli.agent.ui.home" />
     </key>
     <key name="android.template.-1852516822">
       <recent name="com.ssas.jibli.agent.ui.home.order" />
@@ -343,6 +130,13 @@
     </key>
     <key name="android.template.-806172246">
       <recent name="com.ssas.jibli.agent.ui.home" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\git\JibliAgent\app\src\main\res\drawable" />
+      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\git\JibliAgent\app\src\main\res\drawable-xxxhdpi" />
+      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\git\JibliAgent\app\src\main\res\drawable-xxhdpi" />
+      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\git\JibliAgent\app\src\main\res\drawable-xhdpi" />
+      <recent name="D:\Work\AWorkspace\Jibli_Agent\code\git\JibliAgent\app\src\main\res\drawable-hdpi" />
     </key>
     <key name="android.template.-373331161">
       <recent name="com.ssas.jibli.agent.ui.home.order" />
@@ -425,93 +219,119 @@
       <option name="presentableId" value="Default" />
       <updated>1629210496891</updated>
     </task>
+    <task id="LOCAL-00001" summary="Stagging Server changed.">
+      <created>1632212412530</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632212412530</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Stagging Server changed.">
+      <created>1632396045114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632396045114</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Barcode scanner">
+      <created>1635487415896</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1635487415896</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Barcode scanner">
+      <created>1639486820168</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1639486820168</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Stagging Server changed." />
+    <MESSAGE value="Barcode scanner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Barcode scanner" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1629869648218">
+    <state x="666" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1635756202713">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1635484695528" />
+    <state x="666" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1635756202713" />
+    <state x="676" y="157" key="AndroidProcessChooserDialog" timestamp="1635848317555">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="676" y="157" key="AndroidProcessChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1635848317555" />
+    <state x="292" y="0" key="CommitChangelistDialog2" timestamp="1639486816159">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1629869648218" />
-    <state x="223" y="288" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1629433289959">
+    <state x="292" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1639486816159" />
+    <state x="521" y="91" key="FileChooserDialogImpl" timestamp="1637760993393">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="223" y="288" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1629433289959" />
-    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1629264173274">
+    <state x="521" y="91" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1637760993393" />
+    <state x="732" y="130" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1635851897723" />
+    <state width="1323" height="174" key="GridCell.Tab.0.bottom" timestamp="1639486849705">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1629264173274" />
-    <state x="462" y="155" width="447" height="418" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1629349069799">
+    <state width="1323" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1639486849705" />
+    <state width="1877" height="373" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635848941280" />
+    <state width="1323" height="174" key="GridCell.Tab.0.center" timestamp="1639486849704">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="462" y="155" width="447" height="418" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1629349069799" />
-    <state x="438" y="213" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1629291102569">
+    <state width="1323" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1639486849704" />
+    <state width="1877" height="373" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635848941279" />
+    <state width="1323" height="174" key="GridCell.Tab.0.left" timestamp="1639486849703">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="438" y="213" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1629291102569" />
-    <state x="481" y="110" key="AndroidProcessChooserDialog" timestamp="1630051064338">
+    <state width="1323" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1639486849703" />
+    <state width="1877" height="373" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635848941279" />
+    <state width="1323" height="174" key="GridCell.Tab.0.right" timestamp="1639486849704">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="481" y="110" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1630051064338" />
-    <state width="702" height="466" key="DebuggerActiveHint" timestamp="1629437667673">
+    <state width="1323" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1639486849704" />
+    <state width="1877" height="373" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635848941280" />
+    <state width="1877" height="373" key="GridCell.Tab.1.bottom" timestamp="1635848941281">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="373" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1635848941281" />
+    <state width="1877" height="373" key="GridCell.Tab.1.center" timestamp="1635848941280">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="373" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1635848941280" />
+    <state width="1877" height="373" key="GridCell.Tab.1.left" timestamp="1635848941280">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="373" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1635848941280" />
+    <state width="1877" height="373" key="GridCell.Tab.1.right" timestamp="1635848941281">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="373" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1635848941281" />
+    <state x="184" y="8" key="SettingsEditor" timestamp="1639493386240">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="702" height="466" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1629437667673" />
-    <state x="521" y="91" key="FileChooserDialogImpl" timestamp="1629516533638">
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1639493386240" />
+    <state x="275" y="83" key="Vcs.Push.Dialog.v2" timestamp="1639486825274">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="521" y="91" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1629516533638" />
-    <state width="1323" height="66" key="GridCell.Tab.0.bottom" timestamp="1630052560762">
+    <state x="275" y="83" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1639486825274" />
+    <state x="547" y="97" width="826" height="846" key="find.popup" timestamp="1636467450432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="547" y="97" width="826" height="846" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1636467450432" />
+    <state x="476" y="231" key="run.anything.popup" timestamp="1635847707327">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1635428236389" />
+    <state x="476" y="231" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1635847707327" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1639141382826">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="66" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1630052560762" />
-    <state width="1323" height="66" key="GridCell.Tab.0.center" timestamp="1630052560761">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="66" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1630052560761" />
-    <state width="1323" height="66" key="GridCell.Tab.0.left" timestamp="1630052560761">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="66" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1630052560761" />
-    <state width="1323" height="66" key="GridCell.Tab.0.right" timestamp="1630052560761">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="66" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1630052560761" />
-    <state width="1323" height="66" key="GridCell.Tab.1.bottom" timestamp="1630052560763">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="66" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1630052560763" />
-    <state width="1323" height="66" key="GridCell.Tab.1.center" timestamp="1630052560762">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="66" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1630052560762" />
-    <state width="1323" height="66" key="GridCell.Tab.1.left" timestamp="1630052560762">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="66" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1630052560762" />
-    <state width="1323" height="66" key="GridCell.Tab.1.right" timestamp="1630052560762">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="66" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1630052560762" />
-    <state x="391" y="207" key="edit.logcat.filter.dialog.dimensions" timestamp="1629268359016">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="391" y="207" key="edit.logcat.filter.dialog.dimensions/0.0.1366.728@0.0.1366.728" timestamp="1629268359016" />
-    <state x="389" y="68" width="587" height="592" key="find.popup" timestamp="1629374120624">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="389" y="68" width="587" height="592" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1629374120624" />
-    <state x="406" y="135" key="refactoring.ChangeSignatureDialog" timestamp="1629470568123">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="406" y="135" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1629470568123" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1629273542996">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1629273542996" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1630669538979">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1630669538979" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1639141382826" />
+    <state x="486" y="70" width="945" height="969" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1637035596670" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -523,8 +343,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/order/OrderDetailActivity.kt</url>
-          <line>369</line>
-          <option name="timeStamp" value="2" />
+          <line>220</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/order/OrderDetailActivity.kt</url>
+          <line>229</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
