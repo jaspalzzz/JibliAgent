@@ -60,11 +60,11 @@
                 app:layout_constraintTop_toTopOf="@+id/storeNameText"></RatingBar>
 
             <TextView
+                formatDate="@{item.createdDate}"
                 android:id="@+id/sinceDateText"
                 style="@style/CustomSmallTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{item.createdDate}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/storeId"
                 tools:text="12/2/2021"></TextView>

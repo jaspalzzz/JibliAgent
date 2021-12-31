@@ -145,6 +145,7 @@
 
 
                 <TextView
+                    android:textAlignment="viewStart"
                     android:id="@+id/orderId"
                     style="@style/CustomSmallDarkTextView"
                     android:text="@{item.orderTransactionId}"

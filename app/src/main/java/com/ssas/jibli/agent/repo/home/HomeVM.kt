@@ -133,6 +133,10 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
         clickEvents.value = HomeClickEvents.GAS_TAB_CLICK
     }
 
+    fun onLanguageChangeClick(){
+        clickEvents.value = HomeClickEvents.LANGUAGE_CHANGE_CLICK
+    }
+
     /*
     * SearchOrderNotification
     * */

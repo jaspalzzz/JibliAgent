@@ -36,6 +36,25 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/margin_large">
 
+                <TextView
+                    android:id="@+id/languageChangeText"
+                    style="@style/CustomMediumDarkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/trans_button__small_bg"
+                    android:drawableEnd="@drawable/ic_arrow_down_24"
+                    android:drawablePadding="@dimen/padding_x_small"
+                    android:gravity="center"
+                    android:onClick="@{()->vm.onLanguageChangeClick()}"
+                    android:paddingStart="@dimen/padding_medium"
+                    android:paddingTop="@dimen/padding_small"
+                    android:paddingEnd="@dimen/padding_medium"
+                    android:paddingBottom="@dimen/padding_small"
+                    android:text="@string/ar"
+                    app:layout_constraintBottom_toBottomOf="@+id/homeNotificationBt"
+                    app:layout_constraintEnd_toStartOf="@+id/homeNotificationBt"
+                    tools:text="AR"></TextView>
+
                 <ImageView
                     android:id="@+id/homeNotificationBt"
                     android:layout_width="wrap_content"
@@ -83,6 +102,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/homeNotificationBt" />
 
                 <TextView
+                    android:textAlignment="viewStart"
                     android:id="@+id/userName"
                     style="@style/CustomRegularLightTextView"
                     android:layout_width="0dp"
@@ -117,22 +137,22 @@
             app:layout_constraintVertical_weight="1">
 
             <com.ssas.jibli.agent.widgets.CardImageItem
-                android:onClick="@{()->vm.pickupDeliveriesClick()}"
-                android:layout_marginTop="@dimen/margin"
-                android:layout_marginEnd="@dimen/margin"
-                android:layout_marginStart="@dimen/margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:onClick="@{()->vm.pickupDeliveriesClick()}"
                 app:item_card_img="@drawable/ic_pick_delivery"
                 app:item_card_title="@string/pickup_delivery"></com.ssas.jibli.agent.widgets.CardImageItem>
 
             <com.ssas.jibli.agent.widgets.CardImageItem
-                android:onClick="@{()->vm.myOrdersClick()}"
-                android:layout_marginTop="@dimen/margin"
-                android:layout_marginEnd="@dimen/margin"
-                android:layout_marginStart="@dimen/margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:onClick="@{()->vm.myOrdersClick()}"
                 app:item_card_img="@drawable/ic_my_order"
                 app:item_card_title="@string/my_orders"></com.ssas.jibli.agent.widgets.CardImageItem>
 

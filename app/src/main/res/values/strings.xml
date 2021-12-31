@@ -16,8 +16,8 @@
 
     <!--Notifications-->
     <string name="channel_id" translatable="false">1</string>
-    <string name="channel_name" translatable="false">Jibli</string>
-    <string name="channel_description" translatable="false">jibli notification</string>
+    <string name="channel_name" >Jibli</string>
+    <string name="channel_description">jibli notification</string>
 
 
     <!--Strings-->
@@ -130,5 +130,11 @@
     <string name="shopping">Shopping</string>
     <string name="water">Water</string>
     <string name="gas">Gas</string>
+    <string name="ar">AR</string>
+    <string name="change_language">Change Language</string>
+    <string name="change_lang_msg">You can Choose to change the Language Setting of your Mobile Application.</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="change">Change</string>
 
 </resources>

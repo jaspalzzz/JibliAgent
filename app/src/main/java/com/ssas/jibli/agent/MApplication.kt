@@ -31,7 +31,7 @@ class MApplication : Application() {
             .build()
 
         pref = getSharedPreferences(PrefKeys.PREF_NAME, Context.MODE_PRIVATE)
-        language = pref.getString(PrefKeys.LANGUAGE, LanguageUtils.ENGLISH) ?: LanguageUtils.ENGLISH
+        language = pref.getString(PrefKeys.LANGUAGE, LanguageUtils.ARABIC) ?: LanguageUtils.ARABIC
     }
 
 
@@ -40,8 +40,6 @@ class MApplication : Application() {
         lateinit var provider: ViewModelProvider.NewInstanceFactory
         lateinit var appComponent: AppComponent
         lateinit var netComponents: NetComponents
-        var language = LanguageUtils.ENGLISH
-        var isSessionExpire = false
-        var isLogin = false
+        var language = LanguageUtils.ARABIC
     }
 }
