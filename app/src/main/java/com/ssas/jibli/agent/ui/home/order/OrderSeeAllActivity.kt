@@ -28,6 +28,8 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
     private var isFirstLoading = true
     private var statusCode:String = ""
     private var orderAdapter: ReviewOrderTransactionAdapter? = null
+    var selectedTab = SharingKeys.SHOPPING_MALL_TAB
+
 
     override val bindingActivity: ActivityBinding
         get() = ActivityBinding(R.layout.activity_order_see_all, HomeVM::class.java)
@@ -51,7 +53,7 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
     }
 
     private fun searchOrderList() {
-        viewModel.searchOrderDetails(pageNumber, limit, true, false,"",statusCode)
+        viewModel.searchCustomerOrders(pageNumber, limit, true, false,"",statusCode,selectedTab)
     }
 
     private fun inflateOrderList() {
@@ -60,6 +62,7 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
         orderAdapter = ReviewOrderTransactionAdapter(this) { position, item ->
             var bundle = Bundle().apply {
                 putString(SharingKeys.ORDER_TRANSACTION_ID,item?.orderTransactionId)
+                putInt(SharingKeys.ORDER_API_TYPE,selectedTab)
             }
             Utils.jumpActivityForResult(this,RequestCodes.CHANGE_ORDER_REQUEST_CODE,OrderDetailActivity::class.java,bundle)
         }
@@ -119,16 +122,28 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
                 }
 
                 HomeClickEvents.FILTER_CLICK ->{
-                    if(binding.followToogleBt.isChecked){
-                        binding.showFilterOption = true
-                    }else{
-                        binding.showFilterOption = false
-                    }
+                    binding.showFilterOption = binding.followToogleBt.isChecked
+                }
+
+                HomeClickEvents.SHOPPING_TAB_CLICK -> {
+                    selectedTab = SharingKeys.SHOPPING_MALL_TAB
+                    startRefreshingData()
+
+                }
+
+                HomeClickEvents.WATER_TAB_CLICK -> {
+                    selectedTab = SharingKeys.WATER_TAB
+                    startRefreshingData()
+                }
+
+                HomeClickEvents.GAS_TAB_CLICK -> {
+                    selectedTab = SharingKeys.GAS_TAB
+                    startRefreshingData()
                 }
             }
         })
 
-        vm.searchOrder.observe(this, Observer {
+        vm.searchCustomerOrdersResponse.observe(this, Observer {
             when (it.status) {
                 Status.LOADING -> {
                     if (isFirstLoading) {
@@ -208,6 +223,7 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
         orderAdapter?.clearData()
         isScrolling = false
         pageNumber = 0
+        isFirstLoading = true
         searchOrderList()
     }
 

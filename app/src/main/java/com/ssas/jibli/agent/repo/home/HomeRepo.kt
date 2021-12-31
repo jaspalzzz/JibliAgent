@@ -8,7 +8,6 @@ import com.ssas.jibli.agent.data.models.paymentChannel.PaymentChannelsResponse
 import com.ssas.jibli.agent.data.models.searchOrder.SearchOrderResponse
 import com.ssas.jibli.agent.network.ApiService
 import com.ssas.jibli.agent.data.models.searchNotification.SearchNotificationHistoryResponse
-import retrofit2.http.Body
 import javax.inject.Inject
 
 class HomeRepo {
@@ -20,8 +19,16 @@ class HomeRepo {
         MApplication.netComponents.inject(this)
     }
 
-    suspend fun searchOrder(params: JsonObject): SearchOrderResponse{
-        return apiService.searchOrder(params)
+    suspend fun searchCustomerOrder(params: JsonObject): SearchOrderResponse{
+        return apiService.searchCustomerOrder(params)
+    }
+
+    suspend fun searchCustomerOrderForWater(params: JsonObject): SearchOrderResponse{
+        return apiService.searchCustomerOrderForWater(params)
+    }
+
+    suspend fun searchCustomerOrderForGas(params: JsonObject): SearchOrderResponse{
+        return apiService.searchCustomerOrderForGas(params)
     }
 
     suspend fun searchMerchantStores(params: JsonObject): MerchantStoresResponse{

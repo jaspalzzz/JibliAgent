@@ -121,21 +121,34 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
         clickEvents.value = HomeClickEvents.FILTER_CLICK
     }
 
+    fun onShoppingTabClick() {
+        clickEvents.value = HomeClickEvents.SHOPPING_TAB_CLICK
+    }
+
+    fun onWaterTabClick() {
+        clickEvents.value = HomeClickEvents.WATER_TAB_CLICK
+    }
+
+    fun onGasTabClick() {
+        clickEvents.value = HomeClickEvents.GAS_TAB_CLICK
+    }
+
     /*
     * SearchOrderNotification
     * */
-    val searchOrder = MutableLiveData<APIResponse<SearchOrderResponse>>()
+    val searchCustomerOrdersResponse = MutableLiveData<APIResponse<SearchOrderResponse>>()
 
-    fun searchOrderDetails(
+    fun searchCustomerOrders(
         pageNumber: Int,
         limit: Int,
         hasPagination: Boolean,
         viewChildOrders: Boolean,
         orderTransactionId: String,
-        statusCode: String
+        statusCode: String,
+        apiType: Int
     ) {
         if (Utils.isInternet(getApplication())) {
-            searchOrder.postValue(APIResponse<SearchOrderResponse>().onLoading() as APIResponse<SearchOrderResponse>)
+            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onLoading() as APIResponse<SearchOrderResponse>)
             var params = NetworkEndPoints.authJsonObject()
             params.addProperty("deliveryAgentCode", prefMain[PrefKeys.SALES_AGENT_CODE, ""])
             params.addProperty("seeAllOrderDetails", "Y")
@@ -153,10 +166,22 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
 
             viewModelScope.async(Dispatchers.IO) {
                 try {
-                    var response = homeRepo.searchOrder(params)
-                    searchOrder.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                    when(apiType){
+                        0 ->{
+                            var response = homeRepo.searchCustomerOrder(params)
+                            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                        }
+                        1 ->{
+                            var response = homeRepo.searchCustomerOrderForWater(params)
+                            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                        }
+                        2 ->{
+                            var response = homeRepo.searchCustomerOrderForGas(params)
+                            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                        }
+                    }
                 } catch (e: Exception) {
-                    searchOrder.postValue(APIResponse<SearchOrderResponse>().onError(e) as APIResponse<SearchOrderResponse>)
+                    searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onError(e) as APIResponse<SearchOrderResponse>)
                 }
             }
         } else {

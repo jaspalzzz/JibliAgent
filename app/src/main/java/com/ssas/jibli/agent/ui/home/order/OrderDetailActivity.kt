@@ -33,6 +33,7 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
     private var productListAdapter: OrderProductAdapter? = null
     private var orderItem: OrderTransactionArr? = null
     private var isVerifiedOrder = false
+    private var selectedTab = 0
 
     override val bindingActivity: ActivityBinding
         get() = ActivityBinding(R.layout.activity_order_detail, HomeVM::class.java)
@@ -71,12 +72,13 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
     private fun handleIntent(intent: Intent?) {
         if (intent != null) {
             orderTransactionId = intent.getStringExtra(SharingKeys.ORDER_TRANSACTION_ID) ?: ""
+            selectedTab =  intent.getIntExtra(SharingKeys.ORDER_API_TYPE,0)
             searchOrderDetails()
         }
     }
 
     private fun searchOrderDetails() {
-        viewModel.searchOrderDetails(0, 10, false, true, orderTransactionId, "")
+        viewModel.searchCustomerOrders(0, 10, false, true, orderTransactionId, "",selectedTab)
     }
 
     override fun subscribeToEvents(vm: HomeVM) {
@@ -161,7 +163,7 @@ class OrderDetailActivity : BaseActivity<ActivityOrderDetailBinding, HomeVM>() {
             }
         })
 
-        vm.searchOrder.observe(this, Observer {
+        vm.searchCustomerOrdersResponse.observe(this, Observer {
             when (it.status) {
                 Status.LOADING -> {
                     showProgress()

@@ -121,12 +121,14 @@
     <string name="agent_barcode_error">Opps!! this order is not assigned to you. For more information contact customer support.</string>
     <string name="view_details"><b>View details</b></string>
     <string name="all">All</string>
-
     <string name="kg">KG</string>
     <string name="bundle">Bundle</string>
     <string name="box">Box</string>
     <string name="piece">Piece</string>
     <string name="pound">Pound</string>
     <string name="other">Other</string>
+    <string name="shopping">Shopping</string>
+    <string name="water">Water</string>
+    <string name="gas">Gas</string>
 
 </resources>

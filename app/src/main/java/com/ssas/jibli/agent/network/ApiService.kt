@@ -19,7 +19,13 @@ interface ApiService {
 	suspend fun loginRequest(@Body params: JsonObject): LoginResponse
 
 	@POST(NetworkEndPoints.SEARCH_CUSTOMER_ORDER)
-	suspend fun searchOrder(@Body params: JsonObject): SearchOrderResponse
+	suspend fun searchCustomerOrder(@Body params: JsonObject): SearchOrderResponse
+
+	@POST(NetworkEndPoints.SEARCH_CUSTOMER_ORDER_FOR_WATER)
+	suspend fun searchCustomerOrderForWater(@Body params: JsonObject): SearchOrderResponse
+
+	@POST(NetworkEndPoints.SEARCH_CUSTOMER_ORDER_FOR_GAS)
+	suspend fun searchCustomerOrderForGas(@Body params: JsonObject): SearchOrderResponse
 
 	@POST(NetworkEndPoints.SEARCH_MERCHANT_STORES)
 	suspend fun searchMerchantStores(@Body params: JsonObject): MerchantStoresResponse

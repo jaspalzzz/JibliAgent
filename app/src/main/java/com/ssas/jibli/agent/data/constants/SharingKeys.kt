@@ -7,4 +7,8 @@ object SharingKeys {
     const val CUSTOMER_LON = "CUSTOMER_LON"
     const val DELIVERY_ADDRESS = "DELIVERY_ADDRESS"
     const val QR_RESULT = "QR_RESULT"
+    const val ORDER_API_TYPE = "ORDER_API_TYPE"
+    var SHOPPING_MALL_TAB = 0
+    var WATER_TAB = 1
+    var GAS_TAB = 2
 }
