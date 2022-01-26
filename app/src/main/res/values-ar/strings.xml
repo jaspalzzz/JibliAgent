@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jibli Agent</string>
+       <!--Network permissions-->
+       
+    <string name="no_network_title">عذراً لاتوجد تغطية</string>
+       
+    <string name="no_network_connection">الرجاء التأكد من تغطية الهاتف المحمول او الانتقال الي موقع فيه تغطية أفضل </string>
+       <!--Exception message-->
+       
+    <string name="exception_msg">هناك خطأ ما، الرجاء إعادة المحاولة</string>
+       <!--Notifications-->
+       
+    <string name="channel_id" translatable="false">1</string>
+       
+    <string name="channel_name">Jibli</string>
+       
+    <string name="channel_description">إشعارات جيبلي</string>
+       <!--Strings-->
+       
+    <string name="verifying">يتم التحقق</string>
+       
+    <string name="retry">إعادة المحاولة</string>
+       
+    <string name="ok">تمام</string>
+       
+    <string name="cancel">إلغاء</string>
+       
+    <string name="no">لا</string>
+       
+    <string name="concatText" translatable="false">%1$s %2$s</string>
+       <!--Auth-->
+       
+    <string name="en">EN</string>
+       
+    <string name="login">تسجيل الدخول</string>
+       
+    <string name="delivery_app">تطبيق توصيل</string>
+       
+    <string name="login_with">تسجيل دخول عبر</string>
+       
+    <string name="enter_email">ادخل البريد الإلكتروني</string>
+       
+    <string name="password">كلمة المرور</string>
+       
+    <string name="retrieve">إعادة إرسال</string>
+       
+    <string name="forget_password">هل نسيت كلمة المرور ؟</string>
+       
+    <string name="not_delivery_agent">لست بوكيل توصيل</string>
+       
+    <string name="not_delivery_agent_message">انت لم يتم ترقية حسابك الي وكيل توصيل من قبل أحد المتاجر، يمكنك التمتع بخدمة جيبلي مول في التطبيق الرئيسي الي حين ان يتم ترقية حسابك</string>
+       
+    <string name="hello">مرحبًا</string>
+       
+    <string name="my_last_picup_order">طلباتي الأخيرة</string>
+       
+    <string name="show_all">الجميع</string>
+       
+    <string name="code">الرمز</string>
+       
+    <string name="phone_number">رقم الهاتف</string>
+       
+    <string name="select_country_code">اختر رمز الدولة</string>
+       
+    <string name="send">إرسال</string>
+       
+    <string name="forget_password_instructions">الرجاء ادخل رقم هاتفكم او البريد الاكتروني وسنقوم بارسال كلمة المرور الخاصة بكم من جديد</string>
+       
+    <string name="retrieve_password">أسترجع كلمة المرور</string>
+       
+    <string name="check_your_mailbox">الرحاء التحقق من بريدك و رسائلكم </string>
+       
+    <string name="need_an_account">هل تحتاج الى حساب؟</string>
+       
+    <string name="sign_up_as_agent">قم بتسجيل كوكيل توصيل</string>
+       
+    <string name="go_to_play_store">إذهب الي متجر قوقل</string>
+       
+    <string name="alert">تنبيه</string>
+       
+    <string name="logout_from_app">هل ترغب في تسجيل الخروج ألان ؟</string>
+       
+    <string name="logout">تسجيل خروج</string>
+       <!--Home VM-->
+       
+    <string name="no_order">لا توجد طلبية</string>
+       
+    <string name="no_shop_as_appointed">لم يقم احد بتكليفكم بإي طلبية حتي الان. خليك قريب</string>
+       
+    <string name="view_my_shops">معاينة متاجري</string>
+       
+    <string name="ordered">تم الطلب</string>
+       
+    <string name="accepted">تم قبول</string>
+       
+    <string name="shipped">تم شحن</string>
+       
+    <string name="delivered">تم التوصيل</string>
+       
+    <string name="order_id">رمز</string>
+       
+    <string name="my_shops">متاجري</string>
+       
+    <string name="store_name">اسم المتجر</string>
+       
+    <string name="store_type">نوع المتجر</string>
+       
+    <string name="store_contact_number">رقم هاتف المتجر</string>
+       
+    <string name="accepted_payment_methods">طرق الدفع المقبولة</string>
+       
+    <string name="latest_notification">الإشعارات</string>
+       
+    <string name="view_notifications">معاينة الإشعارات</string>
+       
+    <string name="orders_delivery">توصيل الطلبات</string>
+       
+    <string name="call">إتصال</string>
+       
+    <string name="order_details">تفاصيل الطلبية</string>
+       
+    <string name="gross_total">الإجمالي</string>
+       
+    <string name="delivery">التوصيل</string>
+       
+    <string name="tax">الضرائب</string>
+       
+    <string name="delivery_address">عنوان التوصيل</string>
+       
+    <string name="delivery_assigned_to">تم تكليف الطلبيه الي</string>
+       
+    <string name="pickup_from_store">إستلام من المتجر</string>
+       
+    <string name="decline_pickup">رفض الإستلام</string>
+       
+    <string name="customer_id">رمز</string>
+       
+    <string name="tel">هاتف</string>
+       
+    <string name="review_order">مراجعة الطلبية</string>
+       
+    <string name="sadad_pay">Sadad PAY</string>
+       
+    <string name="dinarpay">DinarPAY</string>
+       
+    <string name="muamalat_order">Muamalat Order</string>
+       
+    <string name="cash_order">نقدا عند الإستلام</string>
+       
+    <string name="dot">•</string>
+       
+    <string name="location_permission_required">الرجاء السماح لتحديد الموقع</string>
+       
+    <string name="delivery_to_customer">توصيل الي الزبون</string>
+       
+    <string name="order_accepted">تم القبول</string>
+       
+    <string name="under_delivery">تحت التوصيل </string>
+       
+    <string name="delivery_confirmation">تأكيد التوصيل</string>
+       
+    <string name="delivery_confirmation_message">هل ترغب في استلام تأكيد علي التوصيل من الزبون ؟ </string>
+       
+    <string name="like_to_confirm_Delivery">هل ترغب في التاكيد علي الطلبية؟</string>
+       
+    <string name="confirm">تأكيد</string>
+       
+    <string name="send_request">إرسل الطلب</string>
+       
+    <string name="cancel_request">إلغاء الطلب</string>
+       
+    <string name="enter_order_code">ادخل الرمز</string>
+       
+    <string name="resend_code">إعادة ارسال الرمز</string>
+       
+    <string name="order_otp_error">الرجاء ادخل الرمز هنا</string>
+       
+    <string name="ready_for_delivery">جاهز للتوصيل</string>
+       
+    <string name="ready_for_pickup">جاهز للإستلام</string>
+       
+    <string name="confirm_delivery">تاكيد التوصيل</string>
+       
+    <string name="decline_pickup_message">هل ترغب في رفض استلام هذا الطلب </string>
+       
+    <string name="regular">توصيل عادي</string>
+       
+    <string name="premium">توصيل سريع</string>
+       
+    <string name="paid">خالص</string>
+       
+    <string name="not_paid">غير مدفوع</string>
+       
+    <string name="id">رمز</string>
+       
+    <string name="pickup_delivery">إستلام و &amp; توصيل</string>
+       
+    <string name="my_orders">طلباتي</string>
+       
+    <string name="scan_order_barcode">إمسح رمز الطلبية</string>
+       
+    <string name="camera_permission_msg">الرجاء السماح للتطبيق بإستخدام الكمرا من الإعدادات الخاصة بجهازك</string>
+       
+    <string name="agent_barcode_error">عذراً … هذه الطلبية غير موكله اليك</string>
+       
+    <string name="view_details"><b>التفاصيل</b></string>
+       
+    <string name="all">الجميع</string>
+       
+    <string name="kg">كيلو</string>
+       
+    <string name="bundle">رزمة</string>
+       
+    <string name="box">صندوق</string>
+       
+    <string name="piece">قطعة</string>
+       
+    <string name="pound">باوند</string>
+       
+    <string name="other">اخر</string>
+       
+    <string name="shopping">تسوق</string>
+       
+    <string name="water">ماء</string>
+       
+    <string name="gas">غاز</string>
+       
+    <string name="ar">AR</string>
+       
+    <string name="change_language">تغيير اللغة</string>
+       
+    <string name="change_lang_msg">يمكنكم اختيار اللغة المناسبة لكم في استخدام هذا التطبيق</string>
+       
+    <string name="english">إنجليزي</string>
+       
+    <string name="arabic">عربي</string>
+       
+    <string name="change">تغيير</string>
+</resources>
