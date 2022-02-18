@@ -18,6 +18,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         android:orientation="vertical"
         tools:context=".ui.auth.fragments.RegisterContactFragment">
 
@@ -30,6 +31,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <TextView
+                    android:drawablePadding="@dimen/padding_x_small"
+                    android:id="@+id/languageChangeText"
+                    style="@style/CustomSmallDarkTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginEnd="@dimen/margin"
+                    android:background="@drawable/trans_button_small_bg"
+                    android:drawableEnd="@drawable/ic_arrow_down_black_24"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/padding_x_small"
+                    android:paddingTop="@dimen/padding_x_small"
+                    android:paddingStart="@dimen/padding_small"
+                    android:paddingEnd="@dimen/padding_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:onClick="@{()->vm.onLanguageChangeClick()}"
+                    tools:text="@string/en"></TextView>
+
                 <ImageView
                     android:id="@+id/authLogoImg"
                     android:layout_width="wrap_content"
@@ -39,20 +60,32 @@
                     android:src="@drawable/ic_scoter"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/languageChangeText" />
+
+                <TextView
+                    android:id="@+id/welcomeText"
+                    style="@style/CustomLargeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin"
+                    android:layout_marginTop="@dimen/margin_x_large"
+                    android:text="@string/welcome_back_to_your_delivery_app"
+                    android:textColor="@color/colorYellow"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/authLogoImg"></TextView>
 
                 <TextView
                     android:id="@+id/signUpWithLabel"
-                    style="@style/CustomMediumBoldTextView"
+                    style="@style/CustomSmallLightTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_large"
-                    android:layout_marginTop="@dimen/margin"
-                    android:text="@string/login_with"
+                    android:layout_marginTop="@dimen/margin_x_large"
+                    android:text="@string/login_now"
                     android:textAllCaps="true"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/authLogoImg" />
-
+                    app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
 
                 <EditText
@@ -104,7 +137,7 @@
 
                 <Button
                     android:id="@+id/loginBt"
-                    style="@style/CustomPrimaryButton"
+                    style="@style/CustomYellowButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin"
@@ -116,15 +149,25 @@
                     app:layout_constraintTop_toBottomOf="@+id/passwordEt"
                     app:layout_constraintVertical_chainStyle="packed" />
 
+                <TextView
+                    android:id="@+id/emptyTextView"
+                    android:layout_margin="@dimen/margin"
+                    app:layout_constraintTop_toBottomOf="@+id/loginBt"
+                    app:layout_constraintBottom_toTopOf="@+id/needAccountLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"></TextView>
+
 
                 <TextView
+                    app:layout_constraintTop_toBottomOf="@+id/emptyTextView"
                     android:id="@+id/needAccountLabel"
-                    style="@style/CustomMediumTextView"
+                    style="@style/CustomMediumLightTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin"
-                    android:text="@string/need_an_account"
                     android:layout_marginBottom="@dimen/margin"
+                    android:text="@string/need_an_account"
+
                     app:layout_constraintBottom_toTopOf="@+id/forgetPasswordLabel"
                     app:layout_constraintEnd_toStartOf="@+id/signUpLabel"
                     app:layout_constraintHorizontal_chainStyle="packed"
@@ -132,7 +175,7 @@
 
                 <TextView
                     android:id="@+id/signUpLabel"
-                    style="@style/CustomMediumDarkTextView"
+                    style="@style/CustomMediumLightTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="@{()->vm.signUpTextClick()}"
@@ -140,6 +183,7 @@
                     android:paddingTop="@dimen/padding_small"
                     android:paddingEnd="@dimen/padding"
                     android:text="@string/sign_up_as_agent"
+                    android:textStyle="bold"
                     app:layout_constraintBaseline_toBaselineOf="@id/needAccountLabel"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/needAccountLabel" />
@@ -147,7 +191,7 @@
 
                 <TextView
                     android:id="@+id/forgetPasswordLabel"
-                    style="@style/CustomMediumTextView"
+                    style="@style/CustomMediumLightTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin"
@@ -160,7 +204,7 @@
 
                 <TextView
                     android:id="@+id/forgetPasswordBt"
-                    style="@style/CustomMediumTextView"
+                    style="@style/CustomMediumLightTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="@{()->vm.onForgetPasswordClick()}"

@@ -28,17 +28,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JibliAgent">
-        <activity android:name=".ui.home.BarCodeScannerActivity"></activity>
-        <activity android:name=".ui.home.order.ViewMapActivity" />
-        <activity android:name=".ui.home.order.OrderDetailActivity" />
-        <activity android:name=".ui.home.order.OrderSeeAllActivity" />
-        <activity android:name=".ui.home.shops.ViewMerchantActivity" />
-        <activity android:name=".ui.home.shops.ViewShopsActivity" />
-        <activity android:name=".ui.home.notification.NotificationsActivity" />
-        <activity android:name=".ui.auth.ForgetPasswordActivity" />
-        <activity android:name=".ui.auth.LoginActivity" />
-        <activity android:name=".ui.auth.LandingActivity" />
-        <activity android:name=".ui.auth.SplashActivity">
+
+        <activity android:name=".ui.home.BarCodeScannerActivity" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.home.order.ViewMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.order.OrderDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.order.OrderSeeAllActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.shops.ViewMerchantActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.shops.ViewShopsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.home.notification.NotificationsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.auth.ForgetPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.auth.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.auth.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

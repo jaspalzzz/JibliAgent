@@ -14,7 +14,9 @@ import com.ssas.jibli.agent.network.ApiStatusCodes
 import com.ssas.jibli.agent.network.Status
 import com.ssas.jibli.agent.repo.auth.AuthClickEvents
 import com.ssas.jibli.agent.repo.auth.AuthVM
+import com.ssas.jibli.agent.ui.auth.dialog.LanguageChangeDialog
 import com.ssas.jibli.agent.ui.home.DashboardActivity
+import com.ssas.jibli.agent.utils.LanguageUtils
 import com.ssas.jibli.agent.utils.Utils
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, AuthVM>() {
@@ -26,7 +28,19 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, AuthVM>() {
         get() = ActivityBinding(R.layout.activity_login, AuthVM::class.java)
 
     override fun onCreateActivity(savedInstanceState: Bundle?) {
+        selectPreviousLanguage()
+    }
 
+    private fun selectPreviousLanguage() {
+        var language = prefMain.get(PrefKeys.LANGUAGE, LanguageUtils.ARABIC)
+        when (language) {
+            LanguageUtils.ENGLISH -> {
+                binding?.languageChangeText?.text = getString(R.string.en)
+            }
+            LanguageUtils.ARABIC -> {
+                binding?.languageChangeText?.text = getString(R.string.ar)
+            }
+        }
     }
 
     override fun subscribeToEvents(vm: AuthVM) {
@@ -54,6 +68,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, AuthVM>() {
 
                 AuthClickEvents.SIGN_UP_AGENT->{
                     Utils.openWebLink(this,"https://jibli.ly/become-a-delivery-boy/")
+                }
+
+                AuthClickEvents.LANGUAGE_CHANGE_CLICK -> {
+                    var languageChangeDialog = LanguageChangeDialog()
+                    languageChangeDialog.show(supportFragmentManager, languageChangeDialog.tag)
                 }
             }
         })

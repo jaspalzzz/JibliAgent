@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.JibliAgent" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.JibliAgent" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
@@ -64,6 +64,9 @@
         <item name="android:background">@drawable/round_corner_white_bg</item>
     </style>
 
+    <style name="CustomYellowButton" parent="CustomButtonStyle">
+        <item name="android:background">@drawable/yellow_bt_bg</item>
+    </style>
     <style name="CustomRegularTextView" parent="android:Widget.TextView">
         <item name="android:textSize">@dimen/default_text</item>
     </style>
@@ -115,6 +118,14 @@
 
     <style name="CustomMediumBoldTextView" parent="CustomMediumTextView">
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="CustomLargeTextView" parent="android:Widget.TextView">
+        <item name="android:textSize">@dimen/default_large_text</item>
+    </style>
+
+    <style name="CustomLargeDarkTextView" parent="CustomLargeTextView">
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 

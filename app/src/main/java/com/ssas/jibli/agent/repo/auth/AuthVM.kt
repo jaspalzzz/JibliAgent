@@ -77,6 +77,10 @@ class AuthVM(application: Application) : AndroidViewModel(application) {
         clickEvents.value = AuthClickEvents.SIGN_UP_AGENT
     }
 
+    fun onLanguageChangeClick(){
+        clickEvents.value = AuthClickEvents.LANGUAGE_CHANGE_CLICK
+    }
+
     /*
     * Sales agent login request
     * */

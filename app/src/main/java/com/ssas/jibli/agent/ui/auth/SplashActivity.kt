@@ -23,7 +23,7 @@ class SplashActivity : BaseActivitySimple() {
         lifecycleScope.launch {
             delay(1500)
             if(prefMain[PrefKeys.SALES_AGENT_CODE,""].isNullOrEmpty()){
-                Utils.jumpActivity(this@SplashActivity, LandingActivity::class.java)
+                Utils.jumpActivity(this@SplashActivity, LoginActivity::class.java)
             }else{
                 Utils.jumpActivity(this@SplashActivity, DashboardActivity::class.java)
             }

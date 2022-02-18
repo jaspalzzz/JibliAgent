@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/changeLangTitle"
+        style="@style/CustomLargeDarkTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_x_large"
+        android:text="@string/language"></TextView>
+
+
+    <LinearLayout
+        android:id="@+id/englishBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changeLangTitle"
+        android:layout_marginTop="@dimen/margin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/padding"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingEnd="@dimen/padding"
+        android:paddingBottom="@dimen/padding">
+
+
+        <TextView
+            style="@style/CustomRegularTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/english"></TextView>
+
+        <CheckBox
+            android:id="@+id/englishCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:backgroundTint="@color/colorPrimary"
+            android:buttonTint="@color/colorPrimary"
+            android:checked="true"
+            android:clickable="false"></CheckBox>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/arabicBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/englishBt"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/padding"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingEnd="@dimen/padding"
+        android:paddingBottom="@dimen/padding">
+
+        <TextView
+            style="@style/CustomRegularTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/arabic"></TextView>
+
+        <CheckBox
+            android:id="@+id/arabicCheckbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:backgroundTint="@color/colorPrimary"
+            android:buttonTint="@color/colorPrimary"
+            android:clickable="false"></CheckBox>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/changeLangBt"
+        style="@style/CustomPrimaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arabicBt"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginBottom="@dimen/margin"
+        android:text="@string/confirm"></Button>
+</RelativeLayout>
