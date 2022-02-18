@@ -10,6 +10,8 @@ object NetworkEndPoints {
 	const val CREATE_USER_PROFILE = "users/createUserProfile"
 	const val MOBILE_LOGIN_REQUEST = "users/mobileLoginRequest"
 	const val SEARCH_CUSTOMER_ORDER = "order/searchCustomerOrder"
+	const val SEARCH_CUSTOMER_ORDER_FOR_WATER="order/searchCustomerOrderForWater"
+	const val SEARCH_CUSTOMER_ORDER_FOR_GAS="order/searchCustomerOrderForGas"
 	const val SEARCH_MERCHANT_STORES="merchant/searchMerchantStoreForAgents"
 	const val STORE_PAYMENT_CHANNELS = "merchant/getStorePaymentChannels"
 	const val SEARCH_NOTIFICATION_HISTORY = "push/searchNotificationHistory"

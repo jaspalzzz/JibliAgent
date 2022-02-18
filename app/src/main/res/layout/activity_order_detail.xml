@@ -51,6 +51,7 @@
                 android:padding="@dimen/padding">
 
                 <TextView
+                    android:textAlignment="viewStart"
                     android:id="@+id/customerNameText"
                     style="@style/CustomMediumDarkTextView"
                     android:layout_width="0dp"
@@ -73,6 +74,7 @@
                     app:layout_constraintTop_toTopOf="parent"></ImageView>
 
                 <TextView
+                    android:textAlignment="viewStart"
                     android:id="@+id/customerIdText"
                     style="@style/CustomSmallTextView"
                     android:text="@{item.customerCode}"

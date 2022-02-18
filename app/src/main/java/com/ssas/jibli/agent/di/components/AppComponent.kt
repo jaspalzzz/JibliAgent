@@ -4,6 +4,7 @@ package com.ssas.jibli.agent.di.components
 import com.ssas.jibli.agent.base.BaseActivitySimple
 import com.ssas.jibli.agent.base.BaseFragmentSimple
 import com.ssas.jibli.agent.di.modules.AppModule
+import com.ssas.jibli.agent.dialogs.LanguageChangeDialog
 import com.ssas.jibli.agent.repo.auth.AuthVM
 import com.ssas.jibli.agent.repo.home.HomeVM
 import com.ssas.jibli.agent.ui.auth.dialog.LanguageChangeDialog

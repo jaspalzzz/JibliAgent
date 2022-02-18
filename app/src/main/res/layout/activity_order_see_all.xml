@@ -53,11 +53,11 @@
                 tools:text="Title" />
 
             <ToggleButton
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
                 android:id="@+id/followToogleBt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/margin"
                 android:background="@drawable/filter_toggle_button"
                 android:minWidth="0dp"
@@ -70,7 +70,48 @@
         </RelativeLayout>
 
         <RadioGroup
-            android:visibility="@{showFilterOption?View.VISIBLE:View.GONE}"
+            android:id="@+id/orderFilterToggleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:background="#4D000000"
+            android:checkedButton="@+id/shoppingBt"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchOrderToolbar">
+
+            <RadioButton
+                android:id="@+id/shoppingBt"
+                style="@style/SwitchButtonBlueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->vm.onShoppingTabClick()}"
+                android:text="@string/shopping" />
+
+            <RadioButton
+                android:id="@+id/waterBt"
+                style="@style/SwitchButtonBlueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->vm.onWaterTabClick()}"
+                android:text="@string/water" />
+
+            <RadioButton
+                android:id="@+id/gasBt"
+                style="@style/SwitchButtonBlueStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{()->vm.onGasTabClick()}"
+                android:text="@string/gas" />
+        </RadioGroup>
+
+
+        <RadioGroup
             android:id="@+id/filterToggleButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,7 +120,8 @@
             android:checkedButton="@+id/allFilterBt"
             android:orientation="horizontal"
             android:padding="@dimen/padding_x_small"
-            app:layout_constraintTop_toBottomOf="@+id/searchOrderToolbar">
+            android:visibility="@{showFilterOption?View.VISIBLE:View.GONE}"
+            app:layout_constraintTop_toBottomOf="@+id/orderFilterToggleButton">
 
             <RadioButton
                 android:id="@+id/allFilterBt"

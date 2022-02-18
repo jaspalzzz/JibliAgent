@@ -13,6 +13,7 @@ import com.ssas.jibli.agent.data.constants.SharingKeys
 import com.ssas.jibli.agent.data.models.UserProfileArr
 import com.ssas.jibli.agent.data.prefs.PrefKeys
 import com.ssas.jibli.agent.databinding.ActivityDashboardBinding
+import com.ssas.jibli.agent.dialogs.LanguageChangeDialog
 import com.ssas.jibli.agent.network.ApiStatusCodes
 import com.ssas.jibli.agent.network.Status
 import com.ssas.jibli.agent.repo.home.HomeClickEvents
@@ -25,6 +26,7 @@ import com.ssas.jibli.agent.ui.home.order.OrderDetailActivity
 import com.ssas.jibli.agent.ui.home.order.OrderSeeAllActivity
 import com.ssas.jibli.agent.ui.home.shops.ViewShopsActivity
 import com.ssas.jibli.agent.utils.BindingImageAdapter
+import com.ssas.jibli.agent.utils.LanguageUtils
 import com.ssas.jibli.agent.utils.Utils
 
 class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
@@ -33,8 +35,21 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
         get() = ActivityBinding(R.layout.activity_dashboard, HomeVM::class.java)
 
     override fun onCreateActivity(savedInstanceState: Bundle?) {
-
+        selectPreviousLanguage()
     }
+
+    private fun selectPreviousLanguage() {
+        var language = prefMain.get(PrefKeys.LANGUAGE, LanguageUtils.ARABIC)
+        when (language) {
+            LanguageUtils.ENGLISH -> {
+                binding.languageChangeText.text = getString(R.string.en)
+            }
+            LanguageUtils.ARABIC -> {
+                binding.languageChangeText.text = getString(R.string.ar)
+            }
+        }
+    }
+
 
     private fun openOrderReview(orderTransactionId:String){
         var bundle = Bundle().apply {
@@ -79,6 +94,10 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
                 }
                 HomeClickEvents.MY_ORDERS ->{
                     Utils.jumpActivity(this,OrderSeeAllActivity::class.java)
+                }
+                HomeClickEvents.LANGUAGE_CHANGE_CLICK ->{
+                    var languageChangeDialog = LanguageChangeDialog()
+                    languageChangeDialog.show(supportFragmentManager, languageChangeDialog.tag)
                 }
             }
         })
