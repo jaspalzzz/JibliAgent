@@ -18,6 +18,22 @@
         <variable
             name="showFilterOption"
             type="Boolean" />
+
+        <variable
+            name="isShoppingAct"
+            type="Boolean" />
+
+        <variable
+            name="isGasAct"
+            type="Boolean" />
+
+        <variable
+            name="isWaterAct"
+            type="Boolean" />
+
+        <variable
+            name="isFoodAct"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -70,48 +86,6 @@
         </RelativeLayout>
 
         <RadioGroup
-            android:id="@+id/orderFilterToggleButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
-            android:background="#4D000000"
-            android:checkedButton="@+id/shoppingBt"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchOrderToolbar">
-
-            <RadioButton
-                android:id="@+id/shoppingBt"
-                style="@style/SwitchButtonBlueStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="@{()->vm.onShoppingTabClick()}"
-                android:text="@string/shopping" />
-
-            <RadioButton
-                android:id="@+id/waterBt"
-                style="@style/SwitchButtonBlueStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="@{()->vm.onWaterTabClick()}"
-                android:text="@string/water" />
-
-            <RadioButton
-                android:id="@+id/gasBt"
-                style="@style/SwitchButtonBlueStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:onClick="@{()->vm.onGasTabClick()}"
-                android:text="@string/gas" />
-        </RadioGroup>
-
-
-        <RadioGroup
             android:id="@+id/filterToggleButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,7 +95,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/padding_x_small"
             android:visibility="@{showFilterOption?View.VISIBLE:View.GONE}"
-            app:layout_constraintTop_toBottomOf="@+id/orderFilterToggleButton">
+            app:layout_constraintTop_toBottomOf="@+id/searchOrderToolbar">
 
             <RadioButton
                 android:id="@+id/allFilterBt"
@@ -166,8 +140,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin"
-            android:layout_marginBottom="@dimen/margin"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottomMenuView"
             app:layout_constraintTop_toBottomOf="@+id/filterToggleButton">
 
 
@@ -214,6 +187,58 @@
 
             </RelativeLayout>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomMenuView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBlue"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/shoppingMenuBt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->vm.onShoppingTabClick()}"
+                android:src="@{isShoppingAct?@drawable/ic_bottom_menu_shopping_yellow:@drawable/ic_bottom_menu_shopping}"
+                tools:src="@drawable/ic_bottom_menu_food_yellow"></ImageView>
+
+            <ImageView
+                android:id="@+id/gasMenuBt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->vm.onGasTabClick()}"
+                android:src="@{isGasAct?@drawable/ic_bottom_menu_gas_yellow:@drawable/ic_bottom_menu_gas}"
+                tools:src="@drawable/ic_bottom_menu_gas_yellow"></ImageView>
+
+            <ImageView
+                android:id="@+id/waterMenuBt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->vm.onWaterTabClick()}"
+                android:src="@{isWaterAct?@drawable/ic_bottom_menu_water_yellow:@drawable/ic_bottom_menu_water}"
+                tools:src="@drawable/ic_bottom_menu_water_yellow"></ImageView>
+
+            <ImageView
+                android:id="@+id/foodMenuBt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->vm.onFoodTabClick()}"
+                android:src="@{isFoodAct?@drawable/ic_bottom_menu_food_yellow:@drawable/ic_bottom_menu_food}"
+                tools:src="@drawable/ic_bottom_menu_food_yellow"></ImageView>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

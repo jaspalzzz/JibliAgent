@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.ssas.jibli.agent.BuildConfig
 import com.ssas.jibli.agent.MApplication
+import com.ssas.jibli.agent.data.constants.SharingKeys
 import com.ssas.jibli.agent.data.constants.ValConstant
 import com.ssas.jibli.agent.data.models.CommonResponse
 import com.ssas.jibli.agent.data.models.merchantStore.MerchantStoresResponse
@@ -133,6 +134,10 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
         clickEvents.value = HomeClickEvents.GAS_TAB_CLICK
     }
 
+    fun onFoodTabClick(){
+        clickEvents.value = HomeClickEvents.FOOD_TAB_CLICK
+    }
+
     fun onLanguageChangeClick(){
         clickEvents.value = HomeClickEvents.LANGUAGE_CHANGE_CLICK
     }
@@ -171,16 +176,20 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
             viewModelScope.async(Dispatchers.IO) {
                 try {
                     when(apiType){
-                        0 ->{
+                        SharingKeys.SHOPPING_MALL_TAB ->{
                             var response = homeRepo.searchCustomerOrder(params)
                             searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
                         }
-                        1 ->{
+                        SharingKeys.WATER_TAB ->{
                             var response = homeRepo.searchCustomerOrderForWater(params)
                             searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
                         }
-                        2 ->{
+                        SharingKeys.GAS_TAB ->{
                             var response = homeRepo.searchCustomerOrderForGas(params)
+                            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                        }
+                        SharingKeys.FOOD_TAB ->{
+                            var response = homeRepo.searchOrderForFood(params)
                             searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
                         }
                     }

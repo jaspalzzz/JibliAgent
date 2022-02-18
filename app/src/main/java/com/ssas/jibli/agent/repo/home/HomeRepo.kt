@@ -31,6 +31,10 @@ class HomeRepo {
         return apiService.searchCustomerOrderForGas(params)
     }
 
+    suspend fun searchOrderForFood(params: JsonObject): SearchOrderResponse{
+        return apiService.searchOrderForFood(params)
+    }
+
     suspend fun searchMerchantStores(params: JsonObject): MerchantStoresResponse{
         return apiService.searchMerchantStores(params)
     }

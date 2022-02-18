@@ -26,7 +26,7 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
     private var loading = true
     private var isScrolling = false
     private var isFirstLoading = true
-    private var statusCode:String = ""
+    private var statusCode: String = ""
     private var orderAdapter: ReviewOrderTransactionAdapter? = null
     var selectedTab = SharingKeys.SHOPPING_MALL_TAB
 
@@ -36,6 +36,7 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
 
     override fun onCreateActivity(savedInstanceState: Bundle?) {
         initToolbar()
+        activeTabHandling(true, false, false, false)
         inflateOrderList()
         swipeRefresh()
         searchOrderList()
@@ -53,7 +54,7 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
     }
 
     private fun searchOrderList() {
-        viewModel.searchCustomerOrders(pageNumber, limit, true, false,"",statusCode,selectedTab)
+        viewModel.searchCustomerOrders(pageNumber, limit, true, false, "", statusCode, selectedTab)
     }
 
     private fun inflateOrderList() {
@@ -61,10 +62,15 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
         binding.searchOrderList.layoutManager = layoutManager
         orderAdapter = ReviewOrderTransactionAdapter(this) { position, item ->
             var bundle = Bundle().apply {
-                putString(SharingKeys.ORDER_TRANSACTION_ID,item?.orderTransactionId)
-                putInt(SharingKeys.ORDER_API_TYPE,selectedTab)
+                putString(SharingKeys.ORDER_TRANSACTION_ID, item?.orderTransactionId)
+                putInt(SharingKeys.ORDER_API_TYPE, selectedTab)
             }
-            Utils.jumpActivityForResult(this,RequestCodes.CHANGE_ORDER_REQUEST_CODE,OrderDetailActivity::class.java,bundle)
+            Utils.jumpActivityForResult(
+                this,
+                RequestCodes.CHANGE_ORDER_REQUEST_CODE,
+                OrderDetailActivity::class.java,
+                bundle
+            )
         }
         binding.searchOrderList.adapter = orderAdapter
         binding.searchOrderList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -103,45 +109,55 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
         })
 
         vm.clickEvents.observe(this, Observer {
-            when(it){
-                HomeClickEvents.FILTER_ALL_CLICK ->{
+            when (it) {
+                HomeClickEvents.FILTER_ALL_CLICK -> {
                     statusCode = ""
                     filterOrderList()
                 }
-                HomeClickEvents.FILTER_READY_FOR_PICKUP_CLICK ->{
+                HomeClickEvents.FILTER_READY_FOR_PICKUP_CLICK -> {
                     statusCode = ValConstant.READY_FOR_DELIVERY
                     filterOrderList()
                 }
-                HomeClickEvents.FILTER_UNDER_DELIVERY_CLICK->{
+                HomeClickEvents.FILTER_UNDER_DELIVERY_CLICK -> {
                     statusCode = ValConstant.SHIPPED
                     filterOrderList()
                 }
-                HomeClickEvents.FILTER_DELIVERED_CLICK ->{
+                HomeClickEvents.FILTER_DELIVERED_CLICK -> {
                     statusCode = ValConstant.DELIVERED
                     filterOrderList()
                 }
 
-                HomeClickEvents.FILTER_CLICK ->{
+                HomeClickEvents.FILTER_CLICK -> {
                     binding.showFilterOption = binding.followToogleBt.isChecked
                 }
 
                 HomeClickEvents.SHOPPING_TAB_CLICK -> {
+                    activeTabHandling(true, false, false, false)
                     selectedTab = SharingKeys.SHOPPING_MALL_TAB
                     startRefreshingData()
 
                 }
 
                 HomeClickEvents.WATER_TAB_CLICK -> {
+                    activeTabHandling(false, false, true, false)
                     selectedTab = SharingKeys.WATER_TAB
                     startRefreshingData()
                 }
 
                 HomeClickEvents.GAS_TAB_CLICK -> {
+                    activeTabHandling(false, true, false, false)
                     selectedTab = SharingKeys.GAS_TAB
+                    startRefreshingData()
+                }
+
+                HomeClickEvents.FOOD_TAB_CLICK -> {
+                    activeTabHandling(false, false, false, true)
+                    selectedTab = SharingKeys.FOOD_TAB
                     startRefreshingData()
                 }
             }
         })
+
 
         vm.searchCustomerOrdersResponse.observe(this, Observer {
             when (it.status) {
@@ -180,7 +196,7 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
         })
     }
 
-    private fun filterOrderList(){
+    private fun filterOrderList() {
         orderAdapter?.clearData()
         isFirstLoading = true
         searchOrderList()
@@ -233,9 +249,21 @@ class OrderSeeAllActivity : BaseActivity<ActivityOrderSeeAllBinding, HomeVM>() {
         }
     }
 
+    private fun activeTabHandling(
+        isShop: Boolean,
+        isGas: Boolean,
+        isWater: Boolean,
+        isFood: Boolean
+    ) {
+        binding.isShoppingAct = isShop
+        binding.isGasAct = isGas
+        binding.isWaterAct = isWater
+        binding.isFoodAct = isFood
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == RequestCodes.CHANGE_ORDER_REQUEST_CODE && resultCode == RequestCodes.CHANGE_ORDER_RESULT_CODE) {
+        if (requestCode == RequestCodes.CHANGE_ORDER_REQUEST_CODE && resultCode == RequestCodes.CHANGE_ORDER_RESULT_CODE) {
             startRefreshingData()
         }
     }

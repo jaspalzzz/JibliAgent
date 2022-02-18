@@ -18,7 +18,7 @@ import com.ssas.jibli.agent.utils.Utils
 import kotlinx.android.synthetic.main.dialog_language_change.*
 import javax.inject.Inject
 
-class LanguageChangeDialog : BottomSheetDialogFragment() {
+class LanguageChangeDialog(var onLanguageChanged:()->Unit) : BottomSheetDialogFragment() {
 
     private var selectedLanguage = LanguageUtils.ARABIC
 
@@ -86,13 +86,13 @@ class LanguageChangeDialog : BottomSheetDialogFragment() {
 
     private fun showSuccessLanguage() {
         var successDialog = CommonDialog.newInstance(
-            "", getString(R.string.language_changes_success_msg),
+            "", getString(R.string.change_lang_msg),
             R.drawable.ic_check, getString(R.string.ok)
         )
         successDialog.setListener(object : CommonDialog.SuccessDialogListener {
             override fun onPositiveButtonClick(dialog: CommonDialog) {
-                Utils.jumpActivityClearTask(requireContext(), LoginActivity::class.java)
-
+                dialog.dismiss()
+                onLanguageChanged.invoke()
             }
 	
 	        override fun onCancelButtonClick(dialog: CommonDialog) {

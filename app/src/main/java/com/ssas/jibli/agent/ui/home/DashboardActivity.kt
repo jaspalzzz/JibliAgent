@@ -3,7 +3,6 @@ package com.ssas.jibli.agent.ui.home
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.lifecycle.Observer
 import com.google.gson.Gson
 import com.ssas.jibli.agent.R
@@ -13,13 +12,10 @@ import com.ssas.jibli.agent.data.constants.SharingKeys
 import com.ssas.jibli.agent.data.models.UserProfileArr
 import com.ssas.jibli.agent.data.prefs.PrefKeys
 import com.ssas.jibli.agent.databinding.ActivityDashboardBinding
-import com.ssas.jibli.agent.dialogs.LanguageChangeDialog
-import com.ssas.jibli.agent.network.ApiStatusCodes
-import com.ssas.jibli.agent.network.Status
 import com.ssas.jibli.agent.repo.home.HomeClickEvents
 import com.ssas.jibli.agent.repo.home.HomeVM
 import com.ssas.jibli.agent.ui.auth.LoginActivity
-import com.ssas.jibli.agent.ui.home.adapter.OrderTransactionAdapter
+import com.ssas.jibli.agent.ui.auth.dialog.LanguageChangeDialog
 import com.ssas.jibli.agent.ui.home.adapter.ReviewOrderTransactionAdapter
 import com.ssas.jibli.agent.ui.home.notification.NotificationsActivity
 import com.ssas.jibli.agent.ui.home.order.OrderDetailActivity
@@ -95,9 +91,12 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
                 HomeClickEvents.MY_ORDERS ->{
                     Utils.jumpActivity(this,OrderSeeAllActivity::class.java)
                 }
+
                 HomeClickEvents.LANGUAGE_CHANGE_CLICK ->{
-                    var languageChangeDialog = LanguageChangeDialog()
-                    languageChangeDialog.show(supportFragmentManager, languageChangeDialog.tag)
+                    var languageDialog = LanguageChangeDialog{
+                        Utils.jumpActivityClearTask(this, DashboardActivity::class.java)
+                    }
+                    languageDialog.show(supportFragmentManager,"")
                 }
             }
         })

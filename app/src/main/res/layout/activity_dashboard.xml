@@ -38,7 +38,7 @@
 
                 <TextView
                     android:id="@+id/languageChangeText"
-                    style="@style/CustomMediumDarkTextView"
+                    style="@style/CustomSmallDarkTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/trans_button__small_bg"
@@ -47,9 +47,9 @@
                     android:gravity="center"
                     android:onClick="@{()->vm.onLanguageChangeClick()}"
                     android:paddingStart="@dimen/padding_medium"
-                    android:paddingTop="@dimen/padding_small"
+                    android:paddingTop="@dimen/padding_x_small"
                     android:paddingEnd="@dimen/padding_medium"
-                    android:paddingBottom="@dimen/padding_small"
+                    android:paddingBottom="@dimen/padding_x_small"
                     android:text="@string/ar"
                     app:layout_constraintBottom_toBottomOf="@+id/homeNotificationBt"
                     app:layout_constraintEnd_toStartOf="@+id/homeNotificationBt"

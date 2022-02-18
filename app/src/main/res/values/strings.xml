@@ -122,12 +122,17 @@
     <string name="agent_barcode_error">Opps!! this order is not assigned to you. For more information contact customer support.</string>
     <string name="view_details"><b>View details</b></string>
     <string name="all">All</string>
+    <string name="shopping">Shopping</string>
+    <string name="water">Water</string>
+    <string name="gas">Gas</string>
+    <string name="change_language">Change Language</string>
+    <string name="change_lang_msg">Your Language Settings has \nbeen changed</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="change">تغيير</string>
+
     <string name="welcome_back_to_your_delivery_app">Welcome Back to your Delivery App</string>
     <string name="login_now">Login Now</string>
-    <string name="language">Language</string>
-    <string name="english" translatable="false">English</string>
-    <string name="arabic" translatable="false">Arabic</string>
-    <string name="language_changes_success_msg">Your Language Settings has \nbeen changed</string>
 
     <string name="kg">KG</string>
     <string name="bundle">Bundle</string>

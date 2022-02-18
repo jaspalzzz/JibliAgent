@@ -11,4 +11,5 @@ object SharingKeys {
     var SHOPPING_MALL_TAB = 0
     var WATER_TAB = 1
     var GAS_TAB = 2
+    var FOOD_TAB=3
 }

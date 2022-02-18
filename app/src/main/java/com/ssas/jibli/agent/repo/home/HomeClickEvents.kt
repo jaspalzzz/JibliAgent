@@ -23,6 +23,7 @@ enum class HomeClickEvents {
     SHOPPING_TAB_CLICK,
     WATER_TAB_CLICK,
     GAS_TAB_CLICK,
+    FOOD_TAB_CLICK,
     LANGUAGE_CHANGE_CLICK
 
 }

@@ -71,7 +71,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, AuthVM>() {
                 }
 
                 AuthClickEvents.LANGUAGE_CHANGE_CLICK -> {
-                    var languageChangeDialog = LanguageChangeDialog()
+                    var languageChangeDialog = LanguageChangeDialog{
+                        Utils.jumpActivityClearTask(this, LoginActivity::class.java)
+                    }
                     languageChangeDialog.show(supportFragmentManager, languageChangeDialog.tag)
                 }
             }
