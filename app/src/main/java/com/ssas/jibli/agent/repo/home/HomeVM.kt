@@ -160,6 +160,7 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
             searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onLoading() as APIResponse<SearchOrderResponse>)
             var params = NetworkEndPoints.authJsonObject()
             params.addProperty("deliveryAgentCode", prefMain[PrefKeys.SALES_AGENT_CODE, ""])
+
             params.addProperty("seeAllOrderDetails", "Y")
             if (viewChildOrders) {
                 params.addProperty("viewChildOrderDetails", "Y")

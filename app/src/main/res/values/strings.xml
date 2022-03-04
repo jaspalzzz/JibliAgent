@@ -16,8 +16,8 @@
 
     <!--Notifications-->
     <string name="channel_id" translatable="false">1</string>
-    <string name="channel_name" translatable="false">Jibli</string>
-    <string name="channel_description" translatable="false">jibli notification</string>
+    <string name="channel_name" translatable="false">Jibli Agent</string>
+    <string name="channel_description" translatable="false">Jibli Agent notification</string>
 
 
     <!--Strings-->
