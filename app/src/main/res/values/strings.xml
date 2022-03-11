@@ -129,7 +129,13 @@
     <string name="change_lang_msg">Your Language Settings has \nbeen changed</string>
     <string name="english">English</string>
     <string name="arabic">Arabic</string>
-    <string name="change">تغيير</string>
+    <string name="change">Change</string>
+    <string name="update_download_msg">An update has just been downloaded.</string>
+    <string name="restart">RESTART</string>
+    <string name="reset">Reset</string>
+
+    <string name="access_Permission">Access Permission</string>
+    <string name="verified_dekivery_agent">VERIFIED DELIVERY AGENT</string>
 
     <string name="welcome_back_to_your_delivery_app">Welcome Back to your Delivery App</string>
     <string name="login_now">Login Now</string>

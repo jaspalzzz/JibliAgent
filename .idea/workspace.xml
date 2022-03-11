@@ -15,6 +15,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="502901e9-0443-477f-aa7d-a2b74dfe91e2" name="Default Changelist" comment="Bug fix">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_play_core_1_6_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/black_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_agent_identity.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_black_24.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -30,10 +34,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/Jibli_Agent.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Jibli_Agent.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/repo/home/HomeVM.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/repo/home/HomeVM.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_forget_password.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/constants/RequestCodes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/data/constants/RequestCodes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/DashboardActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/DashboardActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/shops/ViewMerchantActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/ui/home/shops/ViewMerchantActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/BindingImageAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ssas/jibli/agent/utils/BindingImageAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_dashboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_merchant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_merchant.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,9 +123,10 @@
     <property name="ExportApk.BuildVariants" value="release" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android-custom-viewD:/Work/AWorkspace/Jibli_Agent/code/local/JibliAgent/app/src/main/java/com/ssas/jibli/agent/widgets/PinView.kt_SELECTED" value="PinView" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Work/AWorkspace/Jibli_Agent/release/release/keystore/jibli_agent_keystore.jks" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="multi-representation-previewD:/Work/AWorkspace/Jibli_Agent/code/local/JibliAgent/app/src/main/java/com/ssas/jibli/agent/widgets/PinView.kt_selected" value="Custom views" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
@@ -124,11 +135,11 @@
       <recent name="com.ssas.jibli.agent.ui.home" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Android\Workspace\JIBLI_AGENT\git\JibliAgent\app\src\main\res\drawable" />
       <recent name="E:\Android\Workspace\JIBLI_AGENT\git\JibliAgent\app\src\main\res\drawable-xxxhdpi" />
       <recent name="E:\Android\Workspace\JIBLI_AGENT\git\JibliAgent\app\src\main\res\drawable-xxhdpi" />
       <recent name="E:\Android\Workspace\JIBLI_AGENT\git\JibliAgent\app\src\main\res\drawable-xhdpi" />
       <recent name="E:\Android\Workspace\JIBLI_AGENT\git\JibliAgent\app\src\main\res\drawable-hdpi" />
-      <recent name="E:\Android\Workspace\JIBLI_AGENT\git\JibliAgent\app\src\main\res\layout" />
     </key>
     <key name="android.template.-806172246">
       <recent name="com.ssas.jibli.agent.ui.home" />
@@ -266,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645187394645</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Bug fix">
+      <created>1646406827486</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1646406827486</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

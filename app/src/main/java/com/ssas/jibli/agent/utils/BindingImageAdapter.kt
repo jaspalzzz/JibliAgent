@@ -32,9 +32,21 @@ object BindingImageAdapter {
 			}
 		}
 	}
-	
 
 
+	@JvmStatic
+	@BindingAdapter(value = ["base_image_default"])
+	fun setImageBase64WithDefault(imageView: ImageView, encodedImage: String?) {
+		if (encodedImage != null) {
+			val decodedString: ByteArray = Base64.decode(encodedImage, Base64.DEFAULT)
+			val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+			if (decodedByte != null) {
+				Glide.with(imageView.context).load(decodedByte).into(imageView)
+			} else {
+				imageView.setImageResource(R.drawable.ic_scoter)
+			}
+		}
+	}
 
 	
 	@JvmStatic

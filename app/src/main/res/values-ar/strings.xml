@@ -237,5 +237,10 @@
     <string name="arabic">عربي</string>
        
     <string name="change">تغيير</string>
+    <string name="update_download_msg"> تم تنزيل تحديث جديد الآن</string>
+    <string name="restart"> إعادة التشغيل</string>
+    <string name="reset">إعادة الضبط</string>
+    <string name="access_Permission">تصريح دخول</string>
+    <string name="verified_dekivery_agent">حساب عميل موثق</string>
     <string name="welcome_back_to_your_delivery_app">مرحباً بكم من جديد في منصة التوصيل الخاصة بكم</string> <string name="login_now">تسجيل دخول الآنNow</string>
 </resources>

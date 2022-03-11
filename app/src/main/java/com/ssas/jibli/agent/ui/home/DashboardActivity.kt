@@ -3,7 +3,17 @@ package com.ssas.jibli.agent.ui.home
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.play.core.appupdate.AppUpdateInfo
+import com.google.android.play.core.appupdate.AppUpdateManager
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.InstallStateUpdatedListener
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.InstallStatus
+import com.google.android.play.core.install.model.UpdateAvailability
 import com.google.gson.Gson
 import com.ssas.jibli.agent.R
 import com.ssas.jibli.agent.base.BaseActivity
@@ -27,10 +37,15 @@ import com.ssas.jibli.agent.utils.Utils
 
 class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
 
+    lateinit var appUpdateManager: AppUpdateManager
+    private var installStateUpdatedListener: InstallStateUpdatedListener? = null
+
+
     override val bindingActivity: ActivityBinding
         get() = ActivityBinding(R.layout.activity_dashboard, HomeVM::class.java)
 
     override fun onCreateActivity(savedInstanceState: Bundle?) {
+        checkForAppUpdate()
         selectPreviousLanguage()
     }
 
@@ -100,13 +115,12 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
                 }
             }
         })
-
     }
-
 
     override fun onResume() {
         super.onResume()
         showProfileDetails()
+        checkNewAppVersionState()
     }
 
     private fun showProfileDetails() {
@@ -117,10 +131,9 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
         binding.userName.text = agentProfile?.loginUserName
         binding.agentCode.text = agentProfile?.agentCode
 
-        BindingImageAdapter.setNetworkImage(
+        BindingImageAdapter.setImageBase64WithDefault(
             binding.userImage,
-            agentProfile?.profileImage1,
-            R.drawable.ic_scoter
+            agentProfile?.profileImage1
         )
     }
 
@@ -139,6 +152,114 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
             })
     }
 
+    private fun checkForAppUpdate() {
+        appUpdateManager = AppUpdateManagerFactory.create(this)
+        // Returns an intent object that you use to check for an update.
+        val appUpdateInfoTask = appUpdateManager.appUpdateInfo
+        // Checks that the platform will allow the specified type of update.
+        registerFlexibleListener()
+
+        appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE) {
+                if (appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+                    startAppUpdateImmediate(appUpdateInfo)
+                } else if (appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+                    startAppUpdateFlexible(appUpdateInfo)
+                }
+
+            }
+        }
+    }
+
+    private fun startAppUpdateImmediate(appUpdateInfo: AppUpdateInfo) {
+        try {
+            appUpdateManager.startUpdateFlowForResult(
+                appUpdateInfo,
+                AppUpdateType.IMMEDIATE,
+                this,
+                RequestCodes.APP_UPDATE
+            )
+        } catch (e: Exception) {
+            Log.e("jaspal", "Immediate App update >> " + e.stackTrace)
+        }
+    }
+
+    private fun startAppUpdateFlexible(appUpdateInfo: AppUpdateInfo) {
+        try {
+            appUpdateManager.registerListener(installStateUpdatedListener)
+            appUpdateManager.startUpdateFlowForResult(
+                appUpdateInfo,
+                AppUpdateType.FLEXIBLE,
+                this,
+                RequestCodes.APP_UPDATE
+            )
+        } catch (e: Exception) {
+            Log.e("jaspal", "Immediate App update >> " + e.stackTrace)
+        }
+    }
+
+    private fun registerFlexibleListener() {
+        installStateUpdatedListener = InstallStateUpdatedListener { state ->
+            if (state.installStatus() == InstallStatus.DOWNLOADING) {
+
+            }
+            if (state.installStatus() == InstallStatus.DOWNLOADED) {
+                popupSnackbarForCompleteUpdate()
+            }
+            // Log state or install the update
+        }
+    }
+
+    private fun unregisterFlexibleUpdate() {
+        appUpdateManager.unregisterListener(installStateUpdatedListener)
+
+    }
+
+    private fun popupSnackbarForCompleteUpdate() {
+        Snackbar.make(
+            binding.rootView,
+            getString(R.string.update_download_msg),
+            Snackbar.LENGTH_INDEFINITE
+        ).apply {
+            setAction(getString(R.string.reset)) { appUpdateManager.completeUpdate() }
+            setActionTextColor(
+                ActivityCompat.getColor(
+                    this@DashboardActivity,
+                    R.color.colorPrimary
+                )
+            )
+            show()
+        }
+        unregisterFlexibleUpdate()
+    }
+
+    private fun checkNewAppVersionState() {
+        appUpdateManager
+            .appUpdateInfo
+            .addOnSuccessListener { appUpdateInfo: AppUpdateInfo ->
+                //FLEXIBLE:
+                // If the update is downloaded but not installed,
+                // notify the user to complete the update.
+                if (appUpdateInfo.installStatus() == InstallStatus.DOWNLOADED) {
+                    popupSnackbarForCompleteUpdate()
+                }
+
+                //IMMEDIATE:
+                if (appUpdateInfo.updateAvailability()
+                    == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS
+                ) {
+                    // If an in-app update is already running, resume the update.
+                    startAppUpdateImmediate(appUpdateInfo)
+                }
+            }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterFlexibleUpdate()
+    }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         mActivityResultListener?.onActivityResult(requestCode, resultCode, data)
@@ -149,6 +270,12 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding, HomeVM>() {
 
             } else {
                 alertDialogShow(this, getString(R.string.alert), getString(R.string.exception_msg))
+            }
+        }
+
+        if (requestCode == RequestCodes.APP_UPDATE) {
+            if (resultCode != RESULT_OK) {
+                unregisterFlexibleUpdate()
             }
         }
 

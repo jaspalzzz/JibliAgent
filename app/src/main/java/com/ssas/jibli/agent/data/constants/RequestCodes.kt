@@ -4,6 +4,7 @@ object RequestCodes {
     /*Request Codes*/
     const val CHANGE_ORDER_REQUEST_CODE = 500
     const val BAR_CODE_SCAN_REQUEST_CODE = 501
+    const val APP_UPDATE = 502
 
 
     /*Result codes*/

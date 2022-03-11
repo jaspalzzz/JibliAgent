@@ -16,8 +16,8 @@ android {
         applicationId "com.ssas.jibli.agent"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 8
-        versionName "1.1.7"
+        versionCode 9
+        versionName "1.1.8"
         archivesBaseName = "jibliAgent-"+formattedDate+"-"+versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -160,5 +160,8 @@ dependencies {
         transitive = false
     }
     implementation "com.google.zxing:core:3.3.0"
+
+    /*Used to implement auto update App*/
+    implementation 'com.google.android.play:core:1.6.1'
 
 }
