@@ -192,7 +192,7 @@
             android:id="@+id/bottomMenuView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBlue"
+            android:background="@color/colorPrimary"
             android:orientation="horizontal"
             android:paddingTop="@dimen/padding_medium"
             android:paddingBottom="@dimen/padding_medium"

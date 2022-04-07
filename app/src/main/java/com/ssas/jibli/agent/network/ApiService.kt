@@ -33,6 +33,15 @@ interface ApiService {
 	@POST(NetworkEndPoints.SEARCH_MERCHANT_STORES)
 	suspend fun searchMerchantStores(@Body params: JsonObject): MerchantStoresResponse
 
+	@POST(NetworkEndPoints.SEARCH_MERCHANT_FOOD_STORES)
+	suspend fun searchMerchantFoodStores(@Body params: JsonObject): MerchantStoresResponse
+
+	@POST(NetworkEndPoints.SEARCH_MERCHANT_WATER_STORES)
+	suspend fun searchMerchantWaterStores(@Body params: JsonObject): MerchantStoresResponse
+
+	@POST(NetworkEndPoints.SEARCH_MERCHANT_GAS_STORES)
+	suspend fun searchMerchantGasStores(@Body params: JsonObject): MerchantStoresResponse
+
 	@POST(NetworkEndPoints.STORE_PAYMENT_CHANNELS)
 	suspend fun getStorePaymentChannels(@Body params: JsonObject): PaymentChannelsResponse
 

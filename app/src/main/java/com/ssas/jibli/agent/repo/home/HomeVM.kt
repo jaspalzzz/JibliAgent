@@ -134,11 +134,11 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
         clickEvents.value = HomeClickEvents.GAS_TAB_CLICK
     }
 
-    fun onFoodTabClick(){
+    fun onFoodTabClick() {
         clickEvents.value = HomeClickEvents.FOOD_TAB_CLICK
     }
 
-    fun onLanguageChangeClick(){
+    fun onLanguageChangeClick() {
         clickEvents.value = HomeClickEvents.LANGUAGE_CHANGE_CLICK
     }
 
@@ -176,26 +176,46 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
 
             viewModelScope.async(Dispatchers.IO) {
                 try {
-                    when(apiType){
-                        SharingKeys.SHOPPING_MALL_TAB ->{
+                    when (apiType) {
+                        SharingKeys.SHOPPING_MALL_TAB -> {
                             var response = homeRepo.searchCustomerOrder(params)
-                            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                            searchCustomerOrdersResponse.postValue(
+                                APIResponse<SearchOrderResponse>().onSuccess(
+                                    response
+                                ) as APIResponse<SearchOrderResponse>?
+                            )
                         }
-                        SharingKeys.WATER_TAB ->{
+                        SharingKeys.WATER_TAB -> {
                             var response = homeRepo.searchCustomerOrderForWater(params)
-                            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                            searchCustomerOrdersResponse.postValue(
+                                APIResponse<SearchOrderResponse>().onSuccess(
+                                    response
+                                ) as APIResponse<SearchOrderResponse>?
+                            )
                         }
-                        SharingKeys.GAS_TAB ->{
+                        SharingKeys.GAS_TAB -> {
                             var response = homeRepo.searchCustomerOrderForGas(params)
-                            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                            searchCustomerOrdersResponse.postValue(
+                                APIResponse<SearchOrderResponse>().onSuccess(
+                                    response
+                                ) as APIResponse<SearchOrderResponse>?
+                            )
                         }
-                        SharingKeys.FOOD_TAB ->{
+                        SharingKeys.FOOD_TAB -> {
                             var response = homeRepo.searchOrderForFood(params)
-                            searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onSuccess(response) as APIResponse<SearchOrderResponse>?)
+                            searchCustomerOrdersResponse.postValue(
+                                APIResponse<SearchOrderResponse>().onSuccess(
+                                    response
+                                ) as APIResponse<SearchOrderResponse>?
+                            )
                         }
                     }
                 } catch (e: Exception) {
-                    searchCustomerOrdersResponse.postValue(APIResponse<SearchOrderResponse>().onError(e) as APIResponse<SearchOrderResponse>)
+                    searchCustomerOrdersResponse.postValue(
+                        APIResponse<SearchOrderResponse>().onError(
+                            e
+                        ) as APIResponse<SearchOrderResponse>
+                    )
                 }
             }
         } else {
@@ -208,7 +228,7 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
     * */
     val searchMerchantStoresResponse = MutableLiveData<APIResponse<MerchantStoresResponse>>()
 
-    fun searchMerchantStores(pageNumber: Int, limit: Int) {
+    fun searchMerchantStores(pageNumber: Int, limit: Int, apiType: Int) {
         if (Utils.isInternet(getApplication())) {
             searchMerchantStoresResponse.postValue(APIResponse<MerchantStoresResponse>().onLoading() as APIResponse<MerchantStoresResponse>)
             var params = NetworkEndPoints.authJsonObject()
@@ -216,19 +236,48 @@ class HomeVM(application: Application) : AndroidViewModel(application) {
             params.addProperty("seeAllMerchantStores", "Y")
             params.addProperty("pageNumber", pageNumber)
             params.addProperty("limit", limit)
+
             viewModelScope.async(Dispatchers.IO) {
                 try {
-                    var response = homeRepo.searchMerchantStores(params)
-                    searchMerchantStoresResponse.postValue(
-                        APIResponse<MerchantStoresResponse>().onSuccess(
-                            response
-                        ) as APIResponse<MerchantStoresResponse>?
-                    )
+                    when (apiType) {
+                        SharingKeys.SHOPPING_MALL_TAB -> {
+                            var response = homeRepo.searchMerchantStores(params)
+                            searchMerchantStoresResponse.postValue(
+                                APIResponse<MerchantStoresResponse>().onSuccess(
+                                    response
+                                ) as APIResponse<MerchantStoresResponse>?
+                            )
+                        }
+                        SharingKeys.WATER_TAB -> {
+                            var response = homeRepo.searchMerchantWaterStores(params)
+                            searchMerchantStoresResponse.postValue(
+                                APIResponse<MerchantStoresResponse>().onSuccess(
+                                    response
+                                ) as APIResponse<MerchantStoresResponse>?
+                            )
+                        }
+                        SharingKeys.GAS_TAB -> {
+                            var response = homeRepo.searchMerchantGasStores(params)
+                            searchMerchantStoresResponse.postValue(
+                                APIResponse<MerchantStoresResponse>().onSuccess(
+                                    response
+                                ) as APIResponse<MerchantStoresResponse>?
+                            )
+                        }
+                        SharingKeys.FOOD_TAB -> {
+                            var response = homeRepo.searchMerchantFoodStores(params)
+                            searchMerchantStoresResponse.postValue(
+                                APIResponse<MerchantStoresResponse>().onSuccess(
+                                    response
+                                ) as APIResponse<MerchantStoresResponse>?
+                            )
+                        }
+                    }
                 } catch (e: Exception) {
-                    searchMerchantStoresResponse.postValue(
-                        APIResponse<MerchantStoresResponse>().onError(
+                    searchCustomerOrdersResponse.postValue(
+                        APIResponse<SearchOrderResponse>().onError(
                             e
-                        ) as APIResponse<MerchantStoresResponse>
+                        ) as APIResponse<SearchOrderResponse>
                     )
                 }
             }

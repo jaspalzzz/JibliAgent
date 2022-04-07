@@ -8,6 +8,7 @@ import com.ssas.jibli.agent.data.models.paymentChannel.PaymentChannelsResponse
 import com.ssas.jibli.agent.data.models.searchOrder.SearchOrderResponse
 import com.ssas.jibli.agent.network.ApiService
 import com.ssas.jibli.agent.data.models.searchNotification.SearchNotificationHistoryResponse
+import retrofit2.http.Body
 import javax.inject.Inject
 
 class HomeRepo {
@@ -41,6 +42,18 @@ class HomeRepo {
 
     suspend fun getStorePaymentChannels(params: JsonObject): PaymentChannelsResponse{
         return apiService.getStorePaymentChannels(params)
+    }
+
+    suspend fun searchMerchantFoodStores(params: JsonObject): MerchantStoresResponse{
+        return apiService.searchMerchantFoodStores(params)
+    }
+
+    suspend fun searchMerchantWaterStores(params: JsonObject): MerchantStoresResponse{
+        return apiService.searchMerchantWaterStores(params)
+    }
+
+    suspend fun searchMerchantGasStores(params: JsonObject): MerchantStoresResponse{
+        return apiService.searchMerchantGasStores(params)
     }
 
     suspend fun searchNotificationHistory(params: JsonObject): SearchNotificationHistoryResponse{

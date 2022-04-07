@@ -16,8 +16,8 @@ android {
         applicationId "com.ssas.jibli.agent"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 9
-        versionName "1.1.8"
+        versionCode 10
+        versionName "1.1.9"
         archivesBaseName = "jibliAgent-"+formattedDate+"-"+versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

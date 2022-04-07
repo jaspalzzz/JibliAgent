@@ -7,15 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ssas.jibli.agent.R
 import com.ssas.jibli.agent.base.BaseActivity
 import com.ssas.jibli.agent.data.constants.SharingKeys
+import com.ssas.jibli.agent.data.constants.ValConstant
 import com.ssas.jibli.agent.data.models.merchantStore.SearchMerchantStoreArr
 import com.ssas.jibli.agent.databinding.ActivityViewShopsBinding
 import com.ssas.jibli.agent.network.ApiStatusCodes
 import com.ssas.jibli.agent.network.Status
+import com.ssas.jibli.agent.repo.home.HomeClickEvents
 import com.ssas.jibli.agent.repo.home.HomeVM
 import com.ssas.jibli.agent.ui.home.adapter.MerchantStoreAdapter
 import com.ssas.jibli.agent.utils.Utils
 
-class ViewShopsActivity : BaseActivity<ActivityViewShopsBinding,HomeVM>() {
+class ViewShopsActivity : BaseActivity<ActivityViewShopsBinding, HomeVM>() {
 
     private var pageNumber = 0
     private var limit = 10
@@ -23,12 +25,15 @@ class ViewShopsActivity : BaseActivity<ActivityViewShopsBinding,HomeVM>() {
     private var isScrolling = false
     private var isFirstLoading = true
     private lateinit var searchMerchantAdapter: MerchantStoreAdapter
+    var selectedTab = SharingKeys.SHOPPING_MALL_TAB
+
 
     override val bindingActivity: ActivityBinding
-        get() = ActivityBinding(R.layout.activity_view_shops,HomeVM::class.java)
+        get() = ActivityBinding(R.layout.activity_view_shops, HomeVM::class.java)
 
     override fun onCreateActivity(savedInstanceState: Bundle?) {
         initToolbar()
+        activeTabHandling(true, false, false, false)
         inflateBasketList()
         swipeRefresh()
         searchMerchantStoreList()
@@ -45,8 +50,8 @@ class ViewShopsActivity : BaseActivity<ActivityViewShopsBinding,HomeVM>() {
         }
     }
 
-    private fun searchMerchantStoreList(){
-        viewModel.searchMerchantStores(pageNumber,limit)
+    private fun searchMerchantStoreList() {
+        viewModel.searchMerchantStores(pageNumber, limit, selectedTab)
     }
 
     private fun inflateBasketList() {
@@ -54,9 +59,9 @@ class ViewShopsActivity : BaseActivity<ActivityViewShopsBinding,HomeVM>() {
         binding.merchantStoreList.layoutManager = layoutManager
         searchMerchantAdapter = MerchantStoreAdapter { position, item ->
             var bundle = Bundle().apply {
-                putParcelable(SharingKeys.MERCHANT_STORE,item)
+                putParcelable(SharingKeys.MERCHANT_STORE, item)
             }
-            Utils.jumpActivityWithData(this, ViewMerchantActivity::class.java,bundle)
+            Utils.jumpActivityWithData(this, ViewMerchantActivity::class.java, bundle)
         }
         binding.merchantStoreList.adapter = searchMerchantAdapter
         binding.merchantStoreList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -83,6 +88,8 @@ class ViewShopsActivity : BaseActivity<ActivityViewShopsBinding,HomeVM>() {
 
 
     override fun subscribeToEvents(vm: HomeVM) {
+        binding.vm = vm
+
         vm.networkError.observe(this, Observer {
             if (it) {
                 alertDialogShow(
@@ -90,6 +97,35 @@ class ViewShopsActivity : BaseActivity<ActivityViewShopsBinding,HomeVM>() {
                     getString(R.string.no_network_title),
                     getString(R.string.no_network_connection)
                 )
+            }
+        })
+
+        vm.clickEvents.observe(this, Observer {
+            when (it) {
+                HomeClickEvents.SHOPPING_TAB_CLICK -> {
+                    activeTabHandling(true, false, false, false)
+                    selectedTab = SharingKeys.SHOPPING_MALL_TAB
+                    startRefreshingData()
+
+                }
+
+                HomeClickEvents.WATER_TAB_CLICK -> {
+                    activeTabHandling(false, false, true, false)
+                    selectedTab = SharingKeys.WATER_TAB
+                    startRefreshingData()
+                }
+
+                HomeClickEvents.GAS_TAB_CLICK -> {
+                    activeTabHandling(false, true, false, false)
+                    selectedTab = SharingKeys.GAS_TAB
+                    startRefreshingData()
+                }
+
+                HomeClickEvents.FOOD_TAB_CLICK -> {
+                    activeTabHandling(false, false, false, true)
+                    selectedTab = SharingKeys.FOOD_TAB
+                    startRefreshingData()
+                }
             }
         })
 
@@ -174,5 +210,17 @@ class ViewShopsActivity : BaseActivity<ActivityViewShopsBinding,HomeVM>() {
         if (binding.swipeRefresh.isRefreshing) {
             binding.swipeRefresh.isRefreshing = false
         }
+    }
+
+    private fun activeTabHandling(
+        isShop: Boolean,
+        isGas: Boolean,
+        isWater: Boolean,
+        isFood: Boolean
+    ) {
+        binding.isShoppingAct = isShop
+        binding.isGasAct = isGas
+        binding.isWaterAct = isWater
+        binding.isFoodAct = isFood
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Jibli Agent</string>
+    <string name="app_name">Jibli hero</string>
        <!--Network permissions-->
        
     <string name="no_network_title">عذراً لاتوجد تغطية</string>
